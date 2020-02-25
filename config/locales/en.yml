@@ -1,2 +1,17 @@
 en:
-  hello: "Hello world"
+  login: Login
+  signup: Sign up
+  logo: Zinza teacher
+  sp_advisory: Support & Advisory
+  hotline: "Hotline: 1900.63.63.42"
+  advisory_online: "Advisory online: 0378578484"
+  tcgd: "© 2020 Vietnamese educational organization"
+  addr: "Headquarters: No. 5 lane 92 Lang Ha, Dong Da District, Hanoi"
+  license: "94/5000 Business Registration License No. 0107721396 issued by Hanoi Department of Planning and Investment on February 9, 2017"
+  license_: "License"
+  post_demand: "Post demands"
+  new_demand: "New demands"
+  found_teacher: "Found teacher"
+  accordant_demand: "Accordant demand"
+  be_teacher: "Be teacher"
+
