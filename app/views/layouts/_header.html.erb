@@ -1,0 +1,89 @@
+<header style="background: #fff;">
+  <nav class="navbar navbar-default">
+    <div class="container flex-row-nowrap" >
+      <div class="flex-row-nowrap" >
+        <div id="main-header-logo">
+          <%= link_to "#" do %>
+          <span class="logo-bg"><%= t "logo" %></span>
+          <% end %>
+        </div>
+        <form action="/" method="post" id="blacasa-search-object-form" accept-charset="UTF-8">
+          <div>
+            <div class="navbar-left hidden-xs">
+              <div class="navbar-form">
+                <div class="search-header">
+                  <div class="form-item form-type-textfield form-item-key">
+                    <input placeholder="Tìm gia sư theo môn học và địa điểm" class="form-control form-text" type="text" id="edit-key" name="key" value="" size="60" maxlength="128">
+                  </div>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-search"></i>
+                  <% end %>
+                  <input type="hidden" name="form_build_id" value="form-2k5duQrbMQziAzHWKV8o0lixX-dMqGtkOGv4vdPvF2c">
+                  <input type="hidden" name="form_id" value="blacasa_search_object_form">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "#", class: "btn btn-light btn-header", title: "Đăng nhập", data: {toggle:"dropdown"} do %>
+              <%= t "login" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", class: "btn btn-light btn-header", title: "Đăng nhập", data: {toggle:"dropdown"} do %>
+              <%= t "signup" %>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <nav id="navbar-scroll">
+    <div class="container" style="height:100%;">
+      <div class="row">
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <span><%= t "post_demand" %></span>
+            <% end %>
+          </li>
+          <li class="visible-xs main-header-search-teacher">
+            <%= link_to "#" do %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span><%= t "found_teacher" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span><%= t "new_demand" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              <span><%= t "be_teacher" %></span>
+            <% end %>
+          </li>
+          <li class="hidden-max413">
+            <%= link_to "#" do %>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span><%= t "accordant_demand" %></span>
+            <% end %>
+          </li>
+          <li class="contact">
+            <i class="fa fa-phone"></i>
+            <span><%= Settings.phone %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

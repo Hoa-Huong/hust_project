@@ -1,2 +1,15 @@
-en:
-  hello: "Hello world"
+vi:
+  login: Đăng nhập
+  signup: Đăng ký
+  logo: Zinza teacher
+  sp_advisory: Hỗ trợ & tư vấn
+  hotline: "Liên hệ: 1900.63.63.42"
+  advisory_online: "Tư vấn online : 0378578484"
+  tcgd: "© 2020 Tổ chức giáo dục Việt Nam"
+  addr: "Trụ sở: Số 5 ngõ 92 Láng Hạ, quận Đống Đa, Hà Nội"
+  license: "Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Hà Nội cấp cấp ngày 09/02/2017"
+  post_demand: "Đăng nhu cầu"
+  new_demand: "Nhu cầu mới"
+  found_teacher: "Tìm gia sư"
+  accordant_demand: "Nhu cầu phù hợp"
+  be_teacher: "Trở thành gia sư"
