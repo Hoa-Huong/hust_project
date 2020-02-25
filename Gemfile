@@ -17,6 +17,7 @@ gem "rails-i18n"
 gem "config"
 gem "figaro"
 gem "font-awesome-rails"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
