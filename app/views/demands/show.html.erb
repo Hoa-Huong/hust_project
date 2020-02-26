@@ -73,8 +73,9 @@
       </div>
       <div class="col-sm-3 col-sm-push-9">
         <div class="action-group text-right show-when-hover">
-          <%= link_to t("teach_offer"), "#", class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
+          <%= button_to t("teach_offer"), teach_offers_path(demand_id: @demand.id), class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
         </div>
+      </div>
       </div>
     </div>
   </div>

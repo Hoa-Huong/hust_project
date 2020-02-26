@@ -45,15 +45,19 @@
                     <span><%= t"settings" %></span>
                   <% end %>
                   <%= link_to user_my_demands_path current_user.id do %>
-                    <i class="fa fa-cog"></i>
+                    <i class="fa fa-book"></i>
                     <span><%= t "my_demand" %></span>
+                  <% end %>
+                  <%= link_to teach_offers_path do %>
+                    <i class="fa fa-book"></i>
+                    <span><%= t "my_teach_offer" %></span>
                   <% end %>
                   <%= link_to "#" do %>
                     <i class="fa fa-bell"></i>
                     <span><%= t "notification" %></span>
                   <% end %>
                   <%= link_to  destroy_user_session_path, method: :delete do %>
-                    <i class="fa fa-sign-out-alt"></i>
+                    <i class="fa fa-outdent"></i>
                     <span><%= t "logout" %></span>
                   <% end %>
                 </div>

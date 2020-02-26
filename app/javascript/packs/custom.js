@@ -42,4 +42,8 @@ $(document).ready(function(){
       $('#user_teacher_attributes_district_id').empty()
     }
   })
-})
+
+    $(document).on('click', 'tr[data-link]', function(){
+    window.location = $(this).data('link')
+  })
+});

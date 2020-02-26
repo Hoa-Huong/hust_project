@@ -28,7 +28,7 @@
             <a href="/chinh-sach-phi" target="_blank"><i class="fa fa-exclamation-circle fa-first"></i></a>)
           </span>
           <div class="action-group text-right show-when-hover">
-            <%= link_to t("teach_offer"), "#", class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
+            <%= button_to t("teach_offer"), teach_offers_path(demand_id: demand.id), class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
           </div>
         </div>
       </div>
