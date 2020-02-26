@@ -27,91 +27,93 @@
         </form>
       </div>
       <% if user_signed_in? %>
-      <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
-        <div class="dropdown">
+        <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
+          <div class="dropdown">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <%= image_tag( current_user.avatar, class: "avatar_menu") %>
+              </li>
+              <li>
+                <div class="dropbtn btn btn-light">
+                  <strong>
+                    <%= current_user.name %>
+                  </strong>
+                </div>
+                <div class="dropdown-content">
+                  <%= link_to edit_user_registration_path do %>
+                    <i class="fa fa-cog"></i>
+                    <span><%= t"settings" %></span>
+                  <% end %>
+                  <%= link_to user_my_demands_path current_user.id do %>
+                    <i class="fa fa-cog"></i>
+                    <span><%= t "my_demand" %></span>
+                  <% end %>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-bell"></i>
+                    <span><%= t "notification" %></span>
+                  <% end %>
+                  <%= link_to  destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out-alt"></i>
+                    <span><%= t "logout" %></span>
+                  <% end %>
+                </div>
+              </li>
+              <li>
+                <i class="fa fa-caret-down"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <%= image_tag( current_user.avatar, class: "avatar_menu") %>
+              <%= link_to new_user_session_path, class: "btn btn-light btn-header", data: {toggle:"dropdown"} do %>
+                <%= t "login" %>
+              <% end %>
             </li>
             <li>
-              <div class="dropbtn btn btn-light">
-                <strong>
-                  <%= current_user.name %>
-                </strong>
-              </div>
-              <div class="dropdown-content">
-                <%= link_to edit_user_registration_path do %>
-                  <i class="fa fa-cog"></i>
-                  <span>Settings</span>
-                <% end %>
-                <%= link_to "#" do %>
-                  <i class="fa fa-bell"></i>
-                  <span>Notifications</span>
-                <% end %>
-                <%= link_to  destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out-alt"></i>
-                  <span>Log out</span>
-                <% end %>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-caret-down"></i>
+              <%= link_to new_user_registration_path, class: "btn btn-light btn-header", data: {toggle:"dropdown"} do %>
+                <%= t "signup" %>
+              <% end %>
             </li>
           </ul>
         </div>
-      </div>
-      <% else %>
-      <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to new_user_session_path, class: "btn btn-light btn-header", data: {toggle:"dropdown"} do %>
-            <%= t "login" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_registration_path, class: "btn btn-light btn-header", data: {toggle:"dropdown"} do %>
-            <%= t "signup" %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
       <% end %>
-
     </div>
   </nav>
-
   <nav id="navbar-scroll">
     <div class="container" style="height:100%;">
       <div class="row">
         <ul>
           <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            <span><%= t "post_demand" %></span>
+            <%= link_to root_path do %>
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <span><%= t "home" %></span>
             <% end %>
           </li>
-          <li class="visible-xs main-header-search-teacher">
-            <%= link_to "#" do %>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <span><%= t "found_teacher" %></span>
+          <li>
+            <%= link_to new_demand_path do %>
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <span><%= t "post_demand" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to demands_path do %>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span><%= t "new_demand" %></span>
             <% end %>
           </li>
           <li>
             <%= link_to "#" do %>
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <span><%= t "new_demand" %></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-            <span><%= t "be_teacher" %></span>
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              <span><%= t "be_teacher" %></span>
             <% end %>
           </li>
           <li class="hidden-max413">
             <%= link_to "#" do %>
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <span><%= t "accordant_demand" %></span>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span><%= t "accordant_demand" %></span>
             <% end %>
           </li>
           <li class="contact">

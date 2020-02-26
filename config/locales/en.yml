@@ -43,3 +43,40 @@ en:
   not_recieve_conf: "Didn't receive confirmation instructions?"
   not_recieve_unlock: Didn't receive unlock instructions?
   resend_unlock: Resend unlock instructions
+  morning: Morning
+  afternoon: Afternoon
+  night: Night
+  update_demand_success: "Demand updated successfully"
+  create_demand_success: "Demand created successfully"
+  update_demand_fail: "Demand updated fail"
+  create_demand_fail: "Demand created fail"
+  demand_not_found : "Demand not found"
+  fetch_recieve_fee: "Collected only when received"
+  teach_offer: "Offer for teaching"
+  vnd: "vnd"
+  month: "month"
+  title_demand: "Summarize love and find tutor (1 sentence, Keyword 100 characters)"
+  subject: "Subject"
+  class: "Class"
+  fee: "Fee (VND / month)"
+  time_per_session: "Number of hour per session"
+  number_student: "Number of students"
+  detail_address: "Specific address"
+  province: "Province / City"
+  district: "District"
+  ex_addr: "No.5, alley 15/5 Alley, De street, Minh Khai street"
+  note: Describe the content you want to learn
+  post_demand: Post demand
+  change_demand: "Change demand"
+  demand_good: "Class that suits you"
+  status: "Status"
+  finding: "Finding"
+  found: "Found"
+  note_: "note"
+  intr_demand: "Hello, you only need to post your demand, the teacher will send you a proposal for a suitable tuition for you to choose."
+  settings: "Settings"
+  My_demand: "My demand"
+  notification: "Notification"
+  logout: "Log out"
+  home: "home"
+  ex_title: "For example, how the English English family 7 people completed, Hanoi"

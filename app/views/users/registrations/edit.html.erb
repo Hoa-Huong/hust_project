@@ -2,68 +2,65 @@
   <div class="login">
     <h2 style="text-align: center; margin-top: 0px;">Edit <%= resource_name.to_s.humanize %></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="error">
-      <%= render "devise/shared/error_messages", resource: resource %>
-    </div>
+      <div class="error">
+        <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
 
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-4">
-          <%= image_tag(current_user.avatar, size: "125x125", class: "rounded-circle") %>
-        </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4">
+            <%= image_tag(current_user.avatar, size: "125x125", class: "rounded-circle") %>
+          </div>
 
-        <div class="col-sm-8">
-          <%= f.file_field :avatar %>
+          <div class="col-sm-8">
+            <%= f.file_field :avatar %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="field">
-      <%= f.label t("name") %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("name") %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label t("email") %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("email") %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label t("phone") %><br />
-      <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("phone") %><br />
+        <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label t("birth") %><br />
-      <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("birth") %><br />
+        <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label t("pwd") %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> <%= t "characters_minimum" %>)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("pwd") %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> <%= t "characters_minimum" %>)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label t("pwd_cf") %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-    </div>
+      <div class="field">
+        <%= f.label t("pwd_cf") %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </div>
 
-    <div class="actions" style="margin-top: 2rem;
-    text-align: right;">
-    <%= f.submit t("signup"), class: "btn btn-success" %>
+      <div class="actions" style="margin-top: 2rem;
+      text-align: right;">
+      <%= f.submit t("signup"), class: "btn btn-success" %>
+      </div>
+    <% end %>
+    <%= link_to t("back"), :back %>
   </div>
-  <% end %>
-
-
-  <%= link_to t("back"), :back %>
-
-</div>
 </div>

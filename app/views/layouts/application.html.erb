@@ -11,10 +11,16 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="flash">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <% if controller.controller_name == "static_pages" %>
+      <div class="flash">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% else %>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    <% end %>
 
     <div class="container content">
       <%= yield %>

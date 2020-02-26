@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_params
+  after_action :attach_avatar, only: %i(create)
 
   def create
     super
@@ -15,4 +16,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit :account_update, keys: attr_account_update_params
   end
 
+  private
+
+  def attach_avatar
+    unless resource.avatar.attached?
+      resource.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+        filename: "default-ava.jpeg"
+    end
+  end
 end

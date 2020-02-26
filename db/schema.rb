@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_072747) do
+ActiveRecord::Schema.define(version: 2020_03_02_084210) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -61,11 +61,27 @@ ActiveRecord::Schema.define(version: 2020_02_26_072747) do
     t.string "level_class"
     t.float "time_per_session"
     t.integer "fee"
-    t.integer "status"
-    t.integer "status_teach"
+    t.integer "status", default: 0
+    t.integer "status_teach", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "note"
+    t.string "title"
+    t.bigint "province_id", null: false
+    t.bigint "district_id", null: false
+    t.string "address_detail"
+    t.index ["district_id"], name: "index_demands_on_district_id"
+    t.index ["province_id"], name: "index_demands_on_province_id"
     t.index ["user_id"], name: "index_demands_on_user_id"
+  end
+
+  create_table "districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "province_id", null: false
+  end
+
+  create_table "provinces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -129,6 +145,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_072747) do
   add_foreign_key "address_demands", "demands"
   add_foreign_key "comments", "teachers"
   add_foreign_key "comments", "users"
+  add_foreign_key "demands", "districts"
+  add_foreign_key "demands", "provinces"
   add_foreign_key "demands", "users"
   add_foreign_key "rates", "teachers"
   add_foreign_key "rates", "users"
