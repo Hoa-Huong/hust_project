@@ -1,0 +1,31 @@
+<div class="view-header">
+  <span><%= t "good_teacher" %></span>
+</div>
+<div class="row teacher">
+  <% @teachers.each do |teacher| %>
+    <div class="col-sm-2">
+      <div class="card">
+        <%= link_to teacher_path(teacher) do %>
+          <%= image_tag(teacher.user_avatar, class: "card-img-top") %>
+          <div class="card-body">
+            <div class="name">
+              <h5>
+                <%= teacher.user_name %>
+              </h5>
+              <p><span><%= teacher.province_name %></span> |
+                <span class="mon-hoc"><%= teacher.subject %></span>
+              </p>
+            </div>
+            <div class="description">
+              <div class="view">
+                <%= teacher.introduce %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <%= link_to t("details)", teacher_path(teacher), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= paginate @teachers %>
+</div>

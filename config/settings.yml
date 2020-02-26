@@ -4,3 +4,6 @@ half_hour: "0.5h"
 hour: "1h"
 two_hour: "2h"
 one_hafl_hour: "1.5h"
+num_demand: 10
+num_teacher: 5
+num_teacher_index: 10

@@ -170,7 +170,7 @@ nav#navbar-scroll {
 }
 
 .bg-gradient-blue {
-  background: -webkit-linear-gradient(top,$very_pale_cyan,$white 50%,$white);
+  background: -webkit-linear-gradient(top, $very_pale_cyan, $white 50%, $white);
 }
 
 .container.content {
@@ -178,22 +178,25 @@ nav#navbar-scroll {
   margin-bottom: 6rem;
 }
 
+.login.teacher {
+  width: 100%;
+}
 .login {
   min-width: 300px !important;
-  width: 37%;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   background: $white;
-  border: 2px solid $dark_blue;
+  border: 2px solid $white;
   overflow: hidden;
   clear: both;
   padding: 15px;
   border-radius: 2px;
   position: relative;
-}
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  float: left;
+  margin-top: -20px;
 
-input.btn.btn-success.send_reset {
-  margin-top: 2rem;
 }
 
 .flash {
@@ -253,19 +256,6 @@ img.avatar_menu {
 
 li i.fa.fa-caret-down {
   margin: 1rem -33px;
-}
-
-.login {
-  min-width: 300px !important;
-  width: 37%;
-  height: auto;
-  margin: 0 auto;
-  background: $white;
-  overflow: hidden;
-  clear: both;
-  padding: 15px;
-  border-radius: 2px;
-  position: relative;
 }
 
 input.btn.btn-success.send_reset {
@@ -340,7 +330,7 @@ li i.fa.fa-caret-down {
   -moz-box-shadow: 0 0 0px 1px rgba(201,208,220,0.2),0 1px 1px 1px rgba(20,23,28,.15);
   box-shadow: 0 0 0px 1px rgba(201,208,220,0.2), 0 1px 1px 1px rgba(20,23,28,.15);
   margin-bottom: 5px;
-  background-color: #fff;
+  background-color: $white;
   .right-item.col-md-10.col-xs-12 {
     span.span-normal {
       font-size: 13px;
@@ -756,4 +746,263 @@ p.alert {
   margin-top: -14rem;
   margin-left: -2rem;
   color: $red;
+}
+
+.login form .field .col-sm-3 {
+  margin-top: 30px;
+}
+
+.login.col-sm-6.col-sm-push-3 {
+  width: 50%;
+}
+
+.login form .field .col-sm-9 {
+  margin-top: 26px;
+}
+
+img.card-img-top {
+  width: 100%;
+  height: 100%;
+}
+
+.row.teacher {
+  margin-top: 5rem;
+  .col-sm-2 .card {
+    width: 18rem;
+    .card-body .name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      font-size: 14px;
+      border-bottom: 1px solid $white_gray;
+      position: relative;
+      padding: 5px 10px;
+      min-height: 31px;
+    }
+    .description {
+      color: $black;
+      padding: 5px 10px;
+      border-bottom: 1px solid $white_gray;
+      .view {
+        line-height: 22px;
+        height: 42px;
+        overflow: hidden;
+      }
+    }
+  }
+
+}
+
+.view-header-home.teacher {
+  margin-top: 3rem;
+  margin-left: 0;
+}
+
+.col-sm-2.col-sm-push-10.more a {
+  float: right;
+}
+
+.pagination {
+  display: inline-block;
+  float: left;
+}
+
+.pagination span {
+  color: $black;
+  float: left;
+  padding: 1px 6px;
+  text-decoration: none;
+}
+
+.pagination span.active {
+  background-color: $light_gray;
+  color: $white;
+  border-radius: 5px;
+}
+
+.pagination span:hover:not(.active) {
+  background-color: $light_gray;
+  border-radius: 5px;
+}
+
+.popup {
+  width: 260px;
+  height: 300px;
+  box-shadow: 0 0 0px 1px rgba(201,208,220,0.2), 0 1px 1px 1px rgba(20,23,28,.15);
+}
+
+.row.teacher .col-sm-2 {
+  margin-bottom: 4rem;
+}
+
+.row.teacher .col-sm-2 a.btn.btn-primary {
+  padding: 2px 9px;
+  margin-top: 1rem;
+  float: right;
+}
+
+span.p-user-name-text {
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 10px;
+}
+.p-user-name {
+  padding:10px 0;
+}
+
+.headblockSecond {
+  border-bottom: 1px solid $light_gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  .spanArea {
+    font-weight: 700;
+    padding: 10px;
+  }
+}
+
+.headblockTop {
+  border-bottom: 1px solid $light_gray;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.headblockThird {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-top: 1rem;
+  .wrapBlockCount {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .blockCount {
+      display: inline-grid;
+      padding: 10px;
+      text-align: center;
+      .firstLine {
+        font-size: 25px;
+        font-weight: 700;
+        color: $light_dark_grayish_red;
+        border-bottom: 2px solid $dark_blue;
+        max-width: 150px;
+        min-width: 120px;
+        margin-bottom: 10px;
+        height: 35px;
+      }
+    }
+  }
+  .wrapBlockInvite {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    .btnInvite {
+      background: $vivid_orange;
+      color: $white;
+      font-size: 18px;
+      min-width: 144px;
+    }
+  }
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.header-block {
+  border-bottom: 1px solid $dark_blue;
+  margin-bottom: 0;
+  h2 {
+    display: inline-block;
+    padding: 10px 20px 10px 10px;
+    background: $dark_blue;
+    font-size: 16px;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+    margin: 0;
+    min-width: 130px;
+  }
+}
+
+.body-block {
+  text-align: justify;
+  display:block;
+  background:$white;
+  padding: 2px 22px;
+  h3 {
+    font-size: 21px;
+    font-weight: bold;
+  }
+}
+
+body {
+  background-color: $very_light_gray;
+}
+
+img.diploma {
+  width: 250px;
+}
+
+.card:hover a {
+  text-decoration: none;
+}
+
+.col-md-3.col-sm-4.custom-w-left {
+  margin-top: 2rem;
+  padding-left:15px;
+}
+
+input#user_diploma {
+  margin-top: 10rem;
+}
+
+.col-sm-6.form-teacher .row {
+  margin-bottom: 15px;
+}
+
+input#user_teacher_attributes_diploma {
+  margin-top: 95px;
+}
+
+input.btn.btn-success {
+  margin-top: 8rem;
+  color: $white;
+  background-color: $vivid_orange;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.field.addr .col-md-5, .field.addr .col-md-4 {
+  margin-top: 26px;
+}
+
+label.introduce {
+  margin-left: -134px;
+  margin-top: 6px;
+}
+
+textarea#user_teacher_attributes_introduce {
+  margin: -82px -156.502px 0px 135px;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.infor-main-inner {
+  width:100%;
+  background-color:$white;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  flex-wrap:wrap;
 }

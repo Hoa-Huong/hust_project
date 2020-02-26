@@ -6,61 +6,139 @@
         <%= render "devise/shared/error_messages", resource: resource %>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-4">
-            <%= image_tag(current_user.avatar, size: "125x125", class: "rounded-circle") %>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag(current_user.avatar, size: "125x125", class: "rounded-circle") %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.file_field :avatar %>
+            </div>
           </div>
+        </div>
 
-          <div class="col-sm-8">
-            <%= f.file_field :avatar %>
+        <div class="field">
+          <div class="col-sm-3 required">
+            <%= f.label t("name") %>
           </div>
+          <div class="col-sm-9">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_name") %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="col-sm-3 required">
+            <%= f.label t("email") %>
+          </div>
+          <div class="col-sm-9">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t("ex_mail") %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="col-sm-3 required">
+            <%= f.label t("phone") %>
+          </div>
+          <div class="col-sm-9">
+            <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control", placeholder: t("ex_phone") %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="col-sm-3 required">
+            <%= f.label t("birth") %>
+          </div>
+          <div class="col-sm-9">
+            <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label t("pwd") %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> <%= t "characters_minimum" %>)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label t("pwd_cf") %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
       </div>
 
-      <div class="field">
-        <%= f.label t("name") %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      <div class="col-sm-6 form-teacher">
+        <%= f.fields_for :teacher, resource.teacher || resource.build_teacher do |ff| %>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
+            </div>
+            <div class="col-sm-8">
+              <%= ff.file_field :diploma, class: "upload-img" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("graduate") %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_field :graduate, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_graduate") %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("address") %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_field :address, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_addr") %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("subject") %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_field :subject, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_suject_teach") %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("level_study") %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_field :level_study, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_level_study") %>
+            </div>
+          </div>
+          <div class="field addr">
+            <div class="col-sm-3">
+              <%= ff.label t("addr_teach") %>
+            </div>
+            <div class="col-md-5">
+              <%= ff.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province") %>
+            </div>
+            <div class="col-md-4">
+              <%= ff.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("introduce"), class: "introduce" %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_area :introduce, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_intr") %>
+            </div>
+          </div>
+        <% end %>
       </div>
-
-      <div class="field">
-        <%= f.label t("email") %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label t("phone") %><br />
-        <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label t("birth") %><br />
-        <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label t("pwd") %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> <%= t "characters_minimum" %>)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.label t("pwd_cf") %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="actions" style="margin-top: 2rem;
-      text-align: right;">
-      <%= f.submit t("signup"), class: "btn btn-success" %>
+      <div class="actions" style="margin-top: 2rem; text-align: right;">
+        <%= f.submit t("change"), class: "btn btn-success" %>
       </div>
     <% end %>
-    <%= link_to t("back"), :back %>
   </div>
 </div>

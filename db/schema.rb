@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_084210) do
+ActiveRecord::Schema.define(version: 2020_03_04_023641) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -113,6 +113,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_084210) do
     t.string "level_study"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "province_id", null: false
+    t.bigint "district_id", null: false
+    t.text "introduce"
+    t.index ["district_id"], name: "index_teachers_on_district_id"
+    t.index ["province_id"], name: "index_teachers_on_province_id"
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
@@ -124,7 +129,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_084210) do
     t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "encrypted_password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -152,5 +157,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_084210) do
   add_foreign_key "rates", "users"
   add_foreign_key "teach_offers", "demands"
   add_foreign_key "teach_offers", "teachers"
+  add_foreign_key "teachers", "districts"
+  add_foreign_key "teachers", "provinces"
   add_foreign_key "teachers", "users"
 end

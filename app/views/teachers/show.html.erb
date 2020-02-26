@@ -1,0 +1,82 @@
+<div class="infor-main-inner" style="">
+  <!--Ảnh avatar & Feedback, Bpoint-->
+  <div class="col-md-3 col-sm-4 custom-w-left">
+    <div class="real-w">
+      <div class="avatar ">
+        <div class="popup-gallery">
+          <%= image_tag(@teacher.user_avatar, class: "avatar-detail") %>
+        </div>
+      </div>
+      <div class="point wVote mb-5">
+      </div>
+    </div>
+  </div>
+  <!--Right block-->
+  <div class="custom-w-right col-md-9">
+    <!--Button feedback, favorite-->
+    <div class="headblockTop">
+      <div class="p-user-name">
+        <span class="p-user-name-text">
+          <%= @teacher.user_name %>
+        </span>
+      </div>
+    </div>
+    <div class="headblockSecond">
+      <span class="spanArea mr-15">
+        <i class="fa fa-user"></i>
+        <%= @teacher.user_birth %>
+      </span>
+    </div>
+    <!--subjects, cost: only for teacher-->
+    <div class="headblockSecond">
+      <span class="spanArea mr-15">
+        <i class="fa fa-book"></i>
+        <%= @teacher.subject %>
+      </span>
+      <span class="spanArea mr-15">
+        <i class="fa fa-book"></i>
+        <%= @teacher.level_study %>
+      </span>
+    </div>
+    <div class="headblockSecond">
+      <span class="spanArea mr-15">
+        <i class="fa fa-graduation-cap"></i>
+        <%= @teacher.graduate %>
+      </span>
+    </div>
+    <!--Place, teaching type: only for teacher-->
+    <div class="headblockSecond">
+      <a class="spanArea mr-15" href="#map">
+        <i class="fa fa-map-marker"></i>
+        <%= @teacher.address %>
+      </a>
+    </div>
+    <!--Statistic: Thống kê-->
+    <div class="headblockThird">
+      <div class="wrapBlockCount">
+        <div class="blockCount">
+          <span class="firstLine">0</span>
+          <span class="secondtLine">Lớp đã dạy</span>
+        </div>
+        <div class="blockCount">
+          <span class="firstLine">0</span>
+          <span class="secondtLine">Rates</span>
+        </div>
+      </div>
+      <div class="wrapBlockInvite">
+        <%= link_to "Mời dạy", "#", class: "btnInvite btn btn-md " %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header-block">
+  <h2><%= t "imformation_teacher" %></h2>
+</div>
+<div class="body-block">
+  <h3><%= t "intr_expirience" %></h3>
+  <p><%= @teacher.introduce %></p>
+  <h3><%= t "diploma" %></h3>
+  <%= image_tag(@teacher.diploma, class: "diploma") %>
+</div>
+
+
