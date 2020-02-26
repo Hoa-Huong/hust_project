@@ -14,4 +14,32 @@ en:
   found_teacher: "Found teacher"
   accordant_demand: "Accordant demand"
   be_teacher: "Be teacher"
-
+  name: "Name"
+  email: "Email"
+  phone: "Phone"
+  birth: "Birth"
+  pwd: "Password"
+  pwd_cf: "Password confirmation"
+  characters_minimum: "characters minimum"
+  send_reset_pwd: "Send me reset password instructions"
+  forget_pwd: "Forgot your password?"
+  change_pwd: "Change your password"
+  resend_conf: Resend confirmation instructions
+  welcome: Welcome
+  you_cof_acc: You can confirm your account email through the link below
+  cf_acc: Confirm my account
+  email_is_change: We're contacting you to notify you that your email is being changed to
+  email_has_changed: We're contacting you to notify you that your email has been changed to
+  hello: Hello
+  pwd_changes: We're contacting you to notify you that your password has been changed.
+  link_reset_pwd: Someone has requested a link to change your password. You can do this through the link below.
+  change_pwd: Change my password
+  ignore_email: If you didn't request this, please ignore this email.
+  pwd_not_change_until: Your password won't change until you access the link above and create a new one.
+  acc_lock: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+  click_unlock: Click the link below to unlock your account
+  unlock_acc: Unlock my account
+  back: Back
+  not_recieve_conf: "Didn't receive confirmation instructions?"
+  not_recieve_unlock: Didn't receive unlock instructions?
+  resend_unlock: Resend unlock instructions

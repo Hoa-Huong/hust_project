@@ -1,0 +1,5 @@
+<p><%= t "welcome" %> <%= @email %>!</p>
+
+<p><%= t "you_cof_acc" %></p>
+
+<p><%= link_to t("cf_acc"), confirmation_url(@resource, confirmation_token: @token) %></p>
