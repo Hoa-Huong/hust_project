@@ -7,8 +7,8 @@ class CreateDemands < ActiveRecord::Migration[6.0]
       t.string :level_class
       t.float :time_per_session
       t.integer :fee
-      t.integer :status
-      t.integer :status_teach
+      t.integer :status, default: 0
+      t.integer :status_teach, default: 0
 
       t.timestamps
     end

@@ -6,18 +6,21 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-4">
-        <%= image_tag("default-avar.jpg", size: "50x50", class: "rounded-circle") %>
+        <%= image_tag("default-ava.jpeg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
       </div>
-
       <div class="col-sm-8">
-        <%= f.file_field :avatar %>
+        <%= f.file_field :avatar, class: "upload-img" %>
       </div>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label t("name") %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+    <div class="col-sm-3">
+      <%= f.label t("name") %><br />
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+    </div>
   </div>
 
   <div class="field">
