@@ -4,11 +4,40 @@
       <span><%= t "demand_good" %></span>
     </div>
     <div class="col-sm-6 more">
-      <%= link_to "Xem thêm >>", "#" %>
+      <%= link_to t("more"), demands_path %>
     </div>
   </div>
   <div class="row">
     <%= render "demands/demand_intr" %>
   </div>
-</div>
+  <div class="view-header-home teacher">
+    <span><%= t "good_teacher" %></span>
+  </div>
+  <div class="row teacher">
+    <% @teachers.each do |teacher| %>
+      <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+          <%= image_tag(teacher.user_avatar, class: "card-img-top") %>
+          <div class="card-body">
+            <div class="name">
+              <h5>
+                <%= link_to teacher.user_name, "#" %>
+              </h5>
+              <p><span><%= teacher.subject %></span> |
+                <span class="mon-hoc"><%= teacher.level_study %></span>
+              </p>
+            </div>
+            <div class="description">
+              <div class="view">
+                <%= teacher.introduce %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-2 col-sm-push-10 more">
+    <%= link_to t("more"), teachers_path %>
+  </div>
 </div>

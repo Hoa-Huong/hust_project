@@ -2,15 +2,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_params
   after_action :attach_avatar, only: %i(create)
 
+  def new
+    build_resource({})
+    resource.build_teacher
+    respond_with self.resource
+  end
+
   def create
     super
+
     resource.avatar.attach(params[:avatar])
   end
 
   protected
 
   def configure_permitted_params
-    attr_sign_up_params = [:name, :email, :birth, :phone, :password, :password_confirmation, :avatar]
+    attr_sign_up_params = [:name, :email, :birth, :phone, :password, :password_confirmation, :avatar,
+      [teacher_attributes: [:diploma, :graduate, :address, :subject, :level_study, :province_id, :district_id, :introduce]]]
     attr_account_update_params = attr_sign_up_params << :current_password
     devise_parameter_sanitizer.permit :sign_up, keys: attr_sign_up_params
     devise_parameter_sanitizer.permit :account_update, keys: attr_account_update_params

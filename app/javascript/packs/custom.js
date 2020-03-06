@@ -28,4 +28,18 @@ $(document).ready(function(){
       $('#demand_district_id').empty()
     }
   })
+
+  $(document).on('change', '#user_teacher_attributes_province_id', function(){
+    const districts = $('#user_teacher_attributes_district_id').html()
+    const province = $('#user_teacher_attributes_province_id :selected').text()
+    const options = $(districts).filter('optgroup[label="' + province + '"]').html()
+
+    if (options){
+      $('#user_teacher_attributes_district_id').html(options)
+      $('#user_teacher_attributes_district_id').parent().show()
+    }
+    else {
+      $('#user_teacher_attributes_district_id').empty()
+    }
+  })
 })

@@ -1,6 +1,4 @@
 class DemandsController < ApplicationController
-  include DemandsHelper
-
   before_action :demand, only: %i(show edit update)
 
   def index
@@ -39,7 +37,7 @@ class DemandsController < ApplicationController
   end
 
   def my_demands
-    @demands = Demand.where(user_id: current_user.id).includes(:province, :district)
+    @my_demands = current_user.demands.includes(:province, :district)
   end
 
   private
