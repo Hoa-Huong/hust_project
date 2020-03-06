@@ -18,13 +18,13 @@
             </div>
             <div class="description">
               <div class="view">
-                <%= teacher.introduce %>
+                <%= teacher.introduce %>...
               </div>
             </div>
           </div>
         <% end %>
       </div>
-    <%= link_to t("details)", teacher_path(teacher), class: "btn btn-primary" %>
+      <%= link_to t("details"), teacher_path(teacher), class: "btn btn-primary" %>
     </div>
   <% end %>
   <%= paginate @teachers %>

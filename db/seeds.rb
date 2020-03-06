@@ -1,3 +1,4 @@
+TeachOffer.delete_all
 Teacher.delete_all
 Demand.delete_all
 User.delete_all
@@ -49,4 +50,12 @@ end
   teacher.diploma.attach io: File.open(Rails.root.join("app", "assets", "images", "certificates-default.jpg")),
     filename: "certificates-default.jpg"
   teacher.save
+end
+
+10.times do |n|
+  teacher_ids = Teacher.ids
+  teacher_id = teacher_ids.sample
+  demand_ids = Demand.ids
+  demand_id = demand_ids.sample
+  TeachOffer.create(teacher_id: teacher_id, demand_id: demand_id)
 end

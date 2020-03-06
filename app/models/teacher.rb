@@ -4,6 +4,7 @@ class Teacher < ApplicationRecord
   has_many :comment, dependent: :destroy
   belongs_to :province
   belongs_to :district
+  has_many :teach_offers, dependent: :destroy
 
   validates :graduate,:address, :subject,:level_study, :introduce, presence: true
 

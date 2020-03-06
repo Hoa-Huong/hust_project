@@ -14,4 +14,6 @@ class Demand < ApplicationRecord
   delegate :name, to: :user, prefix: true
   delegate :name, to: :province, prefix: true
   delegate :name, to: :district, prefix: true
+
+  default_scope {order created_at: :desc }
 end

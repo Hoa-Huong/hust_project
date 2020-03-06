@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_023641) do
   create_table "teach_offers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "teacher_id", null: false
     t.bigint "demand_id", null: false
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["demand_id"], name: "index_teach_offers_on_demand_id"

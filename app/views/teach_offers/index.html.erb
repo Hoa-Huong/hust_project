@@ -1,0 +1,17 @@
+<div class="view-header">
+  <span><%= t "teach_offers" %></span>
+</div>
+<table class="table table-hover display" id="example">
+  <thead>
+    <tr>
+      <th scope="col" class="index"><%= t "index" %></th>
+      <th scope="col"><%= t "teach_offers" %></th>
+      <th scope="col"><%= t "time_offer" %></th>
+      <th scope="col"><%= t "status" %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @teach_offers %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<tr data-link="<%= demand_path(teach_offer.demand) %>">
+  <td><%= teach_offer.demand_title %></td>
+  <td><%= teach_offer.created_at.strftime("%H:%M %F") %></td>
+  <td>
+    <% if teach_offer.pending? %>
+      <%= t "pending" %>
+    <% elsif teach_offer.approved? %>
+      <%= t "approved" %>
+    <% else %>
+      <%= t "unproved" %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to teach_offer_path(teach_offer), method: :delete, data: { confirm: t("confirm") }, class: "btn-delete" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
