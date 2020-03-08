@@ -1,0 +1,18 @@
+<div class="direct-chat-msg content_<%= comment.id %>">
+  <div class="direct-chat-infos clearfix">
+  </div>
+  <%= image_tag(comment.user_avatar, class: "direct-chat-img")%>
+  <div class="direct-chat-text">
+    <span class="direct-chat-name float-left"><%= comment.user_name %></span>
+    <div class="content">
+      <%= comment.content %>
+    </div>
+    <% if current_user.id == comment.user_id %>
+      <div class="control-comment">
+        <span><%= link_to t("edit"), edit_teacher_comment_path(@teacher, comment), remote: true %></span>
+        <span><%= link_to t("del"), teacher_comment_path(@teacher, comment), method: :delete, remote: true, data: { confirm: t("confirm") } %></span>
+      </div>
+    <% end %>
+    <span class="direct-chat-timestamp float-right"><%= comment.created_at.strftime("%F %H:%M") %></span>
+  </div>
+</div>

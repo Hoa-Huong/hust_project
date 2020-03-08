@@ -59,3 +59,12 @@ end
   demand_id = demand_ids.sample
   TeachOffer.create(teacher_id: teacher_id, demand_id: demand_id)
 end
+
+100.times do |n|
+  teacher_ids = Teacher.ids
+  teacher_id = teacher_ids.sample
+  user_ids = User.ids
+  user_id = user_ids.sample
+  content = Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+  Comment.create(teacher_id: teacher_id, user_id: user_id, content: content)
+end

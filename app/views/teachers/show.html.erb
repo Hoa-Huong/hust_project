@@ -55,28 +55,42 @@
     <div class="headblockThird">
       <div class="wrapBlockCount">
         <div class="blockCount">
-          <span class="firstLine">0</span>
-          <span class="secondtLine">Lớp đã dạy</span>
+          <span class="firstLine"><%= total_class_studied @teacher %></span>
+          <span class="secondtLine"><%= t "class_studied" %></span>
         </div>
         <div class="blockCount">
-          <span class="firstLine">0</span>
-          <span class="secondtLine">Rates</span>
+          <span class="firstLine"></span>
+          <span class="secondtLine"><%= t "rate" %></span>
         </div>
       </div>
       <div class="wrapBlockInvite">
-        <%= link_to "Mời dạy", "#", class: "btnInvite btn btn-md " %>
+        <%= link_to t("invite_teach"), "#", class: "btnInvite btn btn-md " %>
       </div>
     </div>
   </div>
 </div>
-<div class="header-block">
-  <h2><%= t "imformation_teacher" %></h2>
-</div>
-<div class="body-block">
-  <h3><%= t "intr_expirience" %></h3>
-  <p><%= @teacher.introduce %></p>
-  <h3><%= t "diploma" %></h3>
-  <%= image_tag(@teacher.diploma, class: "diploma") %>
+<div class="row">
+  <div class="col-sm-10 col-sm-push-1">
+    <div class="header-block">
+      <h2><%= t "imformation_teacher" %></h2>
+    </div>
+    <div class="body-block">
+      <h3><%= t "intr_expirience" %></h3>
+      <p><%= @teacher.introduce %></p>
+      <h3><%= t "diploma" %></h3>
+      <%= image_tag(@teacher.diploma, class: "diploma") %>
+    </div>
+
+    <div class="header-block comment">
+      <h2><%= t "comment" %></h2>
+    </div>
+      <%= render "comments/form" %>
+    <div class="comments">
+      <div class="body-block">
+        <%= render partial: "comments/comment", collection: @comments, as: "comment" %>
+      </div>
+    </div>
+  </div>
 </div>
 
 

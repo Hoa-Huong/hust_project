@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :users do
       get "/my_demands", to: "demands#my_demands"
     end
+    resources :teachers do
+      resources :comments
+    end
 
     get "admin/dashboard", to: "admin#dashboard"
 

@@ -21,7 +21,7 @@
           <div class="card-body">
             <div class="name">
               <h5>
-                <%= link_to teacher.user_name, "#" %>
+                <%= link_to teacher.user_name, teacher_path(teacher)%>
               </h5>
               <p><span><%= teacher.subject %></span> |
                 <span class="mon-hoc"><%= teacher.level_study %></span>

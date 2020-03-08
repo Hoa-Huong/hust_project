@@ -1,7 +1,7 @@
 class Teacher < ApplicationRecord
   belongs_to :user
   has_many :teach_offers
-  has_many :comment, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :province
   belongs_to :district
   has_many :teach_offers, dependent: :destroy
