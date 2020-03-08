@@ -1,0 +1,94 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <%= link_to "#", class: "brand-link" do %>
+    <%= image_tag("logo.jpg", size: "40x40") %>
+    <span class="brand-text font-weight-light"><%= t "logo" %></span>
+  <% end %>
+
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <%= image_tag(current_user.avatar, size: "160x160") %>
+      </div>
+      <div class="info">
+        <%= link_to current_user.name, "#", class: "d-block" %>
+      </div>
+    </div>
+
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-home"></i>
+            <p>
+              <%= t "home" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-user"></i>
+            <p>
+              <%= t "manage_user" %>
+              <i class="fa fa-angle-left right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fa fa-circle"></i>
+                <p><%= t "manage_teacher" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fa fa-circle"></i>
+                <p><%= t "manage_demander" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fa fa-circle"></i>
+                <p><%= t "manage_guest" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-book"></i>
+            <p>
+              <%= t "manage_demand" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-graduation-cap"></i>
+            <p>
+              <%= t "manage_teach_offer" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-comments"></i>
+            <p>
+              <%= t "manage_comment" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="fa fa-money"></i>
+            <p>
+              <%= t "manage_revenue" %>
+            </p>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

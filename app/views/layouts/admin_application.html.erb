@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Settings.title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" %>
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <%= render "layouts/admin_header" %>
+      <%= render "layouts/sidebar" %>
+      <% if controller.controller_name == "static_pages" %>
+        <div class="flash">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% else %>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      <% end %>
+
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+      <%= render "layouts/admin_footer" %>
+    </div>
+  </body>
+</html>
