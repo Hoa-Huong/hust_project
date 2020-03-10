@@ -115,6 +115,14 @@
               <%= ff.text_field :level_study, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_level_study") %>
             </div>
           </div>
+          <div class="field">
+            <div class="col-sm-3">
+              <%= ff.label t("introduce"), class: "introduce" %>
+            </div>
+            <div class="col-sm-9">
+              <%= ff.text_area :introduce, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_intr") %>
+            </div>
+          </div>
           <div class="field addr">
             <div class="col-sm-3">
               <%= ff.label t("addr_teach") %>
@@ -124,14 +132,6 @@
             </div>
             <div class="col-md-4">
               <%= ff.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("introduce"), class: "introduce" %>
-            </div>
-            <div class="col-sm-9">
-              <%= ff.text_area :introduce, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_intr") %>
             </div>
           </div>
         <% end %>

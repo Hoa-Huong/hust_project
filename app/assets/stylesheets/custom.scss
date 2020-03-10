@@ -368,6 +368,7 @@ input#user_avatar {justify-content: end;margin-top: 10rem;}
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
   position: relative;
   text-align: start;
+  background-color: $white;
 }
 
 .header-form {
@@ -991,13 +992,8 @@ input.btn.btn-success {
   margin-top: 26px;
 }
 
-label.introduce {
-  margin-left: -134px;
-  margin-top: 6px;
-}
 
 textarea#user_teacher_attributes_introduce {
-  margin: -82px -156.502px 0px 135px;
   width: 100%;
   min-height: 100px;
   padding: 10px;
@@ -1036,3 +1032,4 @@ body {
 th.index {
   text-align: center;
 }
+

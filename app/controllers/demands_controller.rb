@@ -1,5 +1,6 @@
 class DemandsController < ApplicationController
   before_action :demand, only: %i(show edit update)
+  skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
     @demands = Demand.includes(:province, :district)

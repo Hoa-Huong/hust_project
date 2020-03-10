@@ -5,8 +5,14 @@ Rails.application.routes.draw do
     resources :demands
     resources :teachers
     resources :teach_offers
+
     resources :users do
       get "/my_demands", to: "demands#my_demands"
     end
+
+    get "admin/dashboard", to: "admin#dashboard"
+
+    # namespace :admin do
+    # end
   end
 end

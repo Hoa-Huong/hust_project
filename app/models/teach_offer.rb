@@ -7,4 +7,5 @@ class TeachOffer < ApplicationRecord
   delegate :title, to: :demand, prefix: true
 
   default_scope {order created_at: :desc }
+
 end

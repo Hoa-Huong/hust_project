@@ -12,5 +12,6 @@ module WebsiteTeacherZz
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :vi
     config.assets.version = '1.0'
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'node_modules')
   end
 end
