@@ -7,6 +7,8 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @comments = @teacher.comments
+    @comment = current_user.comments.new
   end
 
   private

@@ -1,0 +1,1 @@
+$('form#edit_comment_<%= @comment.id %>').replaceWith('<%= j render "comments/comment", teacher: @teacher, comment: @comment %>')

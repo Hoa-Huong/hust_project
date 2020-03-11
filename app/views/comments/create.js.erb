@@ -1,0 +1,4 @@
+$('textarea#commentbox').val('');
+// $('form#new_comment').html("<%= j (render 'comments/form') %>");
+$('.comments').prepend("<%= j render @comment %>")
+$('#commentbox').focus();
