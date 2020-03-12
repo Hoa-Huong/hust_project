@@ -1,7 +1,7 @@
 <%= form_for [@teacher, @comment], remote: true, class: "comment" do |f| %>
   <%= image_tag(current_user.avatar, class: "direct-chat-img")%>
   <div class="direct-chat-text">
-    <%= f.text_area :content, class: "form-control commentbox", autofocus: true, id: "commentbox" %>
+    <%= f.text_area :content, class: "form-control commentbox", id: "commentbox" %>
   </div>
   <div>
     <%= f.submit t("comment"), remote: true, class: 'btn btn-default btn-sm' %>

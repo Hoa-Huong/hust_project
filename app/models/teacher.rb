@@ -6,6 +6,8 @@ class Teacher < ApplicationRecord
   belongs_to :district
   has_many :teach_offers, dependent: :destroy
 
+  ratyrate_rateable "point"
+
   validates :graduate,:address, :subject,:level_study, :introduce, presence: true
 
   has_one_attached :diploma

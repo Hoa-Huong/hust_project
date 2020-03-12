@@ -856,6 +856,7 @@ span.p-user-name-text {
 }
 .p-user-name {
   padding:10px 0;
+  width: 100%;
 }
 
 .headblockSecond {
@@ -1173,4 +1174,15 @@ span.direct-chat-timestamp.float-right {
   .direct-chat-msg .direct-chat-text {
     width: 90%;
   }
+}
+
+.point.wVote.mb-5 {
+  text-align: left;
+  width: 225px;
+  margin-top: -13px;
+  margin-left: -5px;
+}
+
+img.star-on {
+  width: 21px;
 }

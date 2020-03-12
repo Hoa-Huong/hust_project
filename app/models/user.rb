@@ -1,6 +1,9 @@
 class User < ApplicationRecord
+  ratyrate_rater
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :confirmable
+
   has_many :demands, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :teacher, dependent: :destroy

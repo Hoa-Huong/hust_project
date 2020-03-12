@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
 
     get "admin/dashboard", to: "admin#dashboard"
+    post '/rate' => 'rater#create', :as => 'rate'
 
     # namespace :admin do
     # end

@@ -7,8 +7,6 @@
           <%= image_tag(@teacher.user_avatar, class: "avatar-detail") %>
         </div>
       </div>
-      <div class="point wVote mb-5">
-      </div>
     </div>
   </div>
   <!--Right block-->
@@ -20,6 +18,11 @@
           <%= @teacher.user_name %>
         </span>
       </div>
+    <% if current_user %>
+      <div class="point wVote mb-5">
+        <%= rating_for_user @teacher,current_user, "point", cancel: true %>
+      </div>
+    <% end %>
     </div>
     <div class="headblockSecond">
       <span class="spanArea mr-15">
@@ -59,7 +62,7 @@
           <span class="secondtLine"><%= t "class_studied" %></span>
         </div>
         <div class="blockCount">
-          <span class="firstLine"></span>
+          <span class="firstLine"><%= avg_rate @teacher %><%= image_tag("star-on.png",class: "star-on") %></span>
           <span class="secondtLine"><%= t "rate" %></span>
         </div>
       </div>
@@ -80,11 +83,12 @@
       <h3><%= t "diploma" %></h3>
       <%= image_tag(@teacher.diploma, class: "diploma") %>
     </div>
-
     <div class="header-block comment">
       <h2><%= t "comment" %></h2>
     </div>
+    <% if user_signed_in? %>
       <%= render "comments/form" %>
+    <% end %>
     <div class="comments">
       <div class="body-block">
         <%= render partial: "comments/comment", collection: @comments, as: "comment" %>
@@ -92,5 +96,3 @@
     </div>
   </div>
 </div>
-
-

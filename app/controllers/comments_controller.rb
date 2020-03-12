@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :teacher, except: :index
+  before_action :teacher
   before_action :comment, only: [:edit, :update, :destroy]
-
-  def index
-    @comments = Comment.all
-  end
 
   def new
     @comment = @teacher.comments.new
