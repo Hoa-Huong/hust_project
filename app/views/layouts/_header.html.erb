@@ -60,6 +60,7 @@
                     <i class="fa fa-outdent"></i>
                     <span><%= t "logout" %></span>
                   <% end %>
+                  <% if can? :create, Project %>
                 </div>
               </li>
               <li>

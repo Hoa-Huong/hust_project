@@ -90,9 +90,7 @@
       <%= render "comments/form" %>
     <% end %>
     <div class="comments">
-      <div class="body-block">
-        <%= render partial: "comments/comment", collection: @comments, as: "comment" %>
-      </div>
+      <%= render partial: "comments/comment", collection: @comments, as: "comment" %>
     </div>
   </div>
 </div>

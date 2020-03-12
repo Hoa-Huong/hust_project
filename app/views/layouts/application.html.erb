@@ -10,15 +10,8 @@
   </head>
   <body>
     <%= render "layouts/header" %>
-    <% if controller.controller_name == "static_pages" %>
-      <div class="flash">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% else %>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
     <div class="container content">
