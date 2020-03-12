@@ -1,9 +1,26 @@
 class TeachersController < ApplicationController
   before_action :teacher, only: [:show]
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @teachers = Teacher.page(params[:page]).per Settings.num_teacher_index
+  end
+
+  def new
+    @teacher = Teacher.new
+  end
+
+  def create
+    byebug
+    @teacher = Teacher.new teacher_params
+    @teacher.user_id = current_user.id
+    if @teacher.save
+      flash[:success] = t "be_teacher_success"
+      redirect_to demands_path
+    else
+      flash[:danger] = t "be_teacher_fail"
+      render :new
+    end
   end
 
   def show

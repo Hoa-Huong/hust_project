@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     get "admin/dashboard", to: "admin#dashboard"
     post '/rate' => 'rater#create', :as => 'rate'
 
-    # namespace :admin do
-    # end
+    namespace :admin do
+      resources :users, except: [:edit, :update]
+      resources :teachers
+      resources :demands
+      resources :teach_offers
+    end
   end
 end

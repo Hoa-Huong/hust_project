@@ -18,7 +18,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item has-treeview">
-          <%= link_to "#", class: "nav-link" do %>
+          <%= link_to admin_dashboard_path, class: "nav-link" do %>
             <i class="fa fa-home"></i>
             <p>
               <%= t "home" %>
@@ -26,33 +26,20 @@
           <% end %>
         </li>
         <li class="nav-item has-treeview">
-          <%= link_to "#", class: "nav-link" do %>
+          <%= link_to admin_users_path, class: "nav-link" do %>
             <i class="fa fa-user"></i>
             <p>
               <%= t "manage_user" %>
-              <i class="fa fa-angle-left right"></i>
             </p>
           <% end %>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <%= link_to "#", class: "nav-link" do %>
-                <i class="fa fa-circle"></i>
-                <p><%= t "manage_teacher" %></p>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "#", class: "nav-link" do %>
-                <i class="fa fa-circle"></i>
-                <p><%= t "manage_demander" %></p>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "#", class: "nav-link" do %>
-                <i class="fa fa-circle"></i>
-                <p><%= t "manage_guest" %></p>
-              <% end %>
-            </li>
-          </ul>
+        </li>
+        <li class="nav-item has-treeview">
+          <%= link_to admin_teachers_path, class: "nav-link" do %>
+            <i class="fas fa-chalkboard-teacher"></i>
+            <p>
+              <%= t "manage_teacher" %>
+            </p>
+          <% end %>
         </li>
         <li class="nav-item has-treeview">
           <%= link_to "#", class: "nav-link" do %>

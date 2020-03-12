@@ -1,7 +1,7 @@
 Comment.delete_all
 TeachOffer.delete_all
-Teacher.delete_all
 Demand.delete_all
+Teacher.delete_all
 User.delete_all
 
 25.times do |n|
@@ -10,6 +10,21 @@ User.delete_all
   email = "user#{n+1}@gmail.com"
   phone = Faker::PhoneNumber.cell_phone
   role = 1
+  password = "123456"
+  password_confirmation = "123456"
+  confirmed_at = Time.now
+  user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
+  user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+    filename: "default-ava.jpeg"
+  user.save
+end
+
+25.times do |n|
+  name = Faker::Name.name
+  birth = Faker::Date.in_date_period(year: 1998)
+  email = "user#{n+26}@gmail.com"
+  phone = Faker::PhoneNumber.cell_phone
+  role = 2
   password = "123456"
   password_confirmation = "123456"
   confirmed_at = Time.now
@@ -38,7 +53,7 @@ end
 end
 
 15.times do |n|
-  user_ids = User.ids
+  user_ids = User.teacher.ids
   user_id = user_ids.sample
   graduate = "Trường Đại học Bách khoa Hà Nội"
   address = "Số 5 ngách 15/5 Ngoc Gốc đề Đường Minh Khai"
@@ -70,7 +85,7 @@ end
   Comment.create(teacher_id: teacher_id, user_id: user_id, content: content)
 end
 
-  user = User.create!(name: "Hòa Thị Hường", birth: "16-01-1998", email: "hoahuongad@gmail.com", phone:"0378578484", role: 0, password: "123456", password_confirmation: "123456", confirmed_at: Time.now)
+  user = User.create!(name: "Hòa Thị Hường", birth: "16-01-1998", email: "admin@gmail.com", phone:"0378578484", role: 0, password: "123456", password_confirmation: "123456", confirmed_at: Time.now)
   user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
   user.save

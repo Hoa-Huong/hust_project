@@ -332,6 +332,7 @@ li i.fa.fa-caret-down {
   box-shadow: 0 0 0px 1px rgba(201,208,220,0.2), 0 1px 1px 1px rgba(20,23,28,.15);
   margin-bottom: 5px;
   background-color: $white;
+  height: 12rem;
   .right-item.col-md-10.col-xs-12 {
     span.span-normal {
       font-size: 13px;
@@ -349,8 +350,13 @@ li i.fa.fa-caret-down {
 }
 
 img.rounded-circle {
-  width: 125px;
-  height: 125px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.row.role {
+  margin: 8px 0;
 }
 
 input#user_avatar {justify-content: end;margin-top: 10rem;}
@@ -543,29 +549,29 @@ input#demand_number_student {
   border: 0.5px solid $light_gray;
 }
 
-textarea#demand_note {
+textarea#demand_note, textarea#teacher_introduce {
   width: 100%;
   min-height: 150px;
   padding: 10px;
+  margin-top: 2rem;
 }
 
-.alert {
-  .alert-danger, .alert-alert {
-    position: absolute;
-    right: 0;
-    top: 10rem;
-    color: $red;
-    font-weight: bolder;
-    background-color: $light_red;
-  }
-  .alert-success {
-    position: absolute;
-    right: 0;
-    top: 10rem;
-    color: $green;
-    font-weight: bolder;
-    background-color: $light_green;
-  }
+.alert.alert-danger, .alert.alert-alert {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  color: $red;
+  font-weight: bolder;
+  background-color: $light_red;
+}
+
+.alert.alert-success {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  color: $green;
+  font-weight: bolder;
+  background-color: $light_green;
 }
 
 .required:after {
@@ -977,12 +983,16 @@ input#user_diploma {
   margin-bottom: 15px;
 }
 
+.form-teacher {
+  display: none;
+}
+
+
 input#user_teacher_attributes_diploma {
   margin-top: 95px;
 }
 
 input.btn.btn-success {
-  margin-top: 8rem;
   color: $white;
   background-color: $vivid_orange;
   border: none;
@@ -999,6 +1009,7 @@ textarea#user_teacher_attributes_introduce {
   width: 100%;
   min-height: 100px;
   padding: 10px;
+  margin-top: 3rem;
 }
 
 input.btn-yellow.btn.ctools-use-modal.ctools-use-modal-processed {
@@ -1193,4 +1204,37 @@ form.edit_comment {
     background-color: $dark_blue;
     color: $white;
   }
+}
+
+form {
+  .input-group {
+    margin-bottom: 32px;
+    border-bottom: 1px solid $light_gray;
+    width: 100%;
+    input {
+      margin-bottom: 32px;
+      border-bottom: 1px solid $light_gray;
+      padding: 9px 0;
+      color: $black;
+      font-size: 16px;
+      font-weight: 500;
+      outline: none;
+      margin: 0;
+      border: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
+
+input.upload-img {
+  position: absolute;
+  top: -43px;
+}
+
+input#teacher_diploma {
+  position: absolute;
+  top: 22px;
 }
