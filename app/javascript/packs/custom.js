@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load",function(){
   setTimeout(function(){
     $('.alert, .flash').remove()
   }, 5000)
@@ -15,10 +15,10 @@ $(document).ready(function(){
     }
   })
 
+  const districts_demand = $('#demand_district_id').html()
   $(document).on('change', '#demand_province_id', function(){
-    const districts = $('#demand_district_id').html()
     const province = $('#demand_province_id :selected').text()
-    const options = $(districts).filter('optgroup[label="' + province + '"]').html()
+    const options = $(districts_demand).filter('optgroup[label="' + province + '"]').html()
 
     if (options){
       $('#demand_district_id').html(options)
@@ -29,10 +29,10 @@ $(document).ready(function(){
     }
   })
 
+  const districts_user = $('#user_teacher_attributes_district_id').html()
   $(document).on('change', '#user_teacher_attributes_province_id', function(){
-    const districts = $('#user_teacher_attributes_district_id').html()
     const province = $('#user_teacher_attributes_province_id :selected').text()
-    const options = $(districts).filter('optgroup[label="' + province + '"]').html()
+    const options = $(districts_user).filter('optgroup[label="' + province + '"]').html()
 
     if (options){
       $('#user_teacher_attributes_district_id').html(options)
@@ -43,7 +43,8 @@ $(document).ready(function(){
     }
   })
 
-    $(document).on('click', 'tr[data-link]', function(){
+  $(document).on('click', 'tr[data-link]', function(){
     window.location = $(this).data('link')
   })
+
 });

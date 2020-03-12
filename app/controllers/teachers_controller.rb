@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
 
   def show
     @comments = @teacher.comments
-    @comment = current_user.comments.new
+    @comment = current_user.comments.new if user_signed_in?
   end
 
   private
