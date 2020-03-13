@@ -4,6 +4,6 @@ module TeachersHelper
   end
 
   def avg_rate teacher
-    teacher.average("point").avg.round Settings.num_round_rate
+    teacher.average("point").present? ? teacher.average("point").avg.round(Settings.num_round_rate) : 0
   end
 end

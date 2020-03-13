@@ -1,3 +1,4 @@
+Comment.delete_all
 TeachOffer.delete_all
 Teacher.delete_all
 Demand.delete_all
@@ -68,3 +69,8 @@ end
   content = Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
   Comment.create(teacher_id: teacher_id, user_id: user_id, content: content)
 end
+
+  user = User.create!(name: "Hòa Thị Hường", birth: "16-01-1998", email: "hoahuongad@gmail.com", phone:"0378578484", role: 0, password: "123456", password_confirmation: "123456", confirmed_at: Time.now)
+  user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+    filename: "default-ava.jpeg"
+  user.save

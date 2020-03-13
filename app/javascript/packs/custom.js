@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load",function(){
   setTimeout(function(){
-    $('.alert, .flash').remove()
+    $('.alert').remove()
   }, 5000)
 
   $(document).on('change', '.upload-img', function(){
