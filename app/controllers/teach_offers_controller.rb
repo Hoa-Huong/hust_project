@@ -4,7 +4,7 @@ class TeachOffersController < ApplicationController
   before_action :teach_offer, only: :destroy
 
   def index
-    @teach_offers = current_user.teacher.teach_offers
+    @teach_offers = current_user.teacher.teach_offers.page(params[:page])
   end
 
   def create

@@ -7,7 +7,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#"><%= t "home" %></a></li>
-          <li class="breadcrumb-item active"><%= t "user_profile" %></li>
+          <li class="breadcrumb-item active"><%= t "profile" %></li>
         </ol>
       </div>
     </div>
@@ -54,27 +54,32 @@
             <div class="tab-content">
               <div class="active tab-pane" id="activity">
                 <div class="row">
-                  <div class="col-sm-5"><%= t "graduate" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "graduate" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.graduate %></div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-sm-5"><%= t "address" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "address" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.address %></div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-sm-5"><%= t "graduate" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "graduate" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.subject %></div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-sm-5"><%= t "level_teach" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "level_teach" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.level_study %></div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-sm-5"><%= t "addr_study" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "addr_study" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.district_name %> <%= @teacher.province_name %></div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-sm-5"><%= t "introduce" %>:</div>
+                  <div class="col-sm-5"><strong><%= t "introduce" %>:</strong></div>
                   <div class="col-sm-7"><%= @teacher.introduce %></div>
                 </div>
               </div>
@@ -85,7 +90,11 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-
+                <% if @demands.present? %>
+                  <%= render partial: "demand_detail", collection: @demands, ad: "demand" %>
+                  <% else %>
+                    <p><%= t "not_present_demand" %></p>
+                <% end %>
               </div>
               <!-- /.tab-pane -->
             </div>

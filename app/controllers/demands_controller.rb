@@ -3,7 +3,7 @@ class DemandsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
-    @demands = Demand.includes(:province, :district)
+    @demands = Demand.demand_approved.includes(:province, :district).page(params[:page]).per Settings.page_demand
   end
 
   def create

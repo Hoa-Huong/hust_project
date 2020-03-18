@@ -72,3 +72,33 @@ p.error {
 .card-body {
   line-height: 35px;
 }
+
+span.text-muted {
+  margin-left: 1rem;
+
+}
+span.text-muted.name:hover {
+  text-decoration: underline;
+}
+
+strong.level_class {
+  margin-left: 14rem;
+}
+
+p.status_approved, p.status_found {
+  color: $green;
+  display: inline;
+}
+
+p.status_unapproved {
+  color: $red;
+  display: inline;
+}
+
+span.float-right.title {
+  margin-top: -7px;
+}
+
+p.status_notFound {
+  color: $vivid_orange;
+}

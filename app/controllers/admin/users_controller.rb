@@ -7,6 +7,7 @@ class Admin::UsersController < AdminController
   end
 
   def show
+    @demands = @user.demands
   end
 
   def new

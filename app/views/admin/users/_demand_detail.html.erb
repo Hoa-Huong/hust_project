@@ -1,0 +1,64 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title"><%= demand.title %></h3>
+    <span class="float-right title"><i class="far fa-calendar-alt"></i>  <%= demand.created_at.strftime("%H:%M %F") %></span>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <strong>
+      <i class="fas fa-book mr-1"></i><%= t "subject" %>:
+    </strong>
+    <span class="text-muted"><%= demand.subject %> </span>
+
+    <strong class="level_class">
+      <i class="fas fa-book mr-1"></i><%= t "level_class" %>:
+    </strong>
+    <span class="text-muted"><%= demand.level_class %> </span>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>
+          <i class="fas fa-book mr-1"></i><%= t "number_student" %>:
+        </strong>
+        <span class="text-muted"><%= demand.number_student %> </span>
+      </div>
+      <div class="col-sm-4">
+        <strong>
+          <i class="fas fa-book mr-1"></i><%= t "time_per_session" %>:
+        </strong>
+        <span class="text-muted"><%= demand.time_per_session %> </span>
+      </div>
+      <div class="col-sm-5">
+        <strong>
+          <i class="fas fa-book mr-1"></i><%= t "fee" %>:
+        </strong>
+        <span class="text-muted"><%= demand.fee %> VNĐ</span>
+      </div>
+    </div>
+    <hr>
+
+    <strong><i class="fas fa-map-marker-alt mr-1"></i> <%= t "address" %></strong>
+
+    <span class="text-muted"><%= demand.address_detail %> <%= demand.district_name %> <%= demand.province_name %></span>
+    <hr>
+
+    <strong><i class="fas fa-map-marker-alt mr-1"></i> <%= t "status" %></strong>
+
+    <span class="text-muted">
+      <% if demand.pending? %>
+        <p class="status_<%= demand.status %>"><%= t "pending" %></p>
+      <% elsif demand.approved? %>
+        <p class="status_<%= demand.status %>"><%= t "approved" %></p>
+      <% else %>
+        <p class="status_<%= demand.status %>"><%= t "unapproved" %></p>
+      <% end %>
+    </span>
+    <hr>
+
+    <strong><i class="far fa-file-alt mr-1"></i> <%= t "note" %></strong>
+
+    <p class="text-muted"><%= demand.note %></p>
+  </div>
+  <!-- /.card-body -->
+</div>

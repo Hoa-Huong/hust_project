@@ -1,0 +1,29 @@
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= t "manage_demand" %></h3>
+        </div>
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th style="width: 139.924px;"><%= t "name" %></th>
+                <th><%= t "phone" %></th>
+                <th><%= t "title" %></th>
+                <th><%= t "status" %></th>
+                <th><%= t "status_teach" %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @demands %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

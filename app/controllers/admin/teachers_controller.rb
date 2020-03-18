@@ -5,6 +5,7 @@ class Admin::TeachersController < AdminController
   end
 
   def show
+    @demands = @teacher.user.demands
   end
 
   def destroy

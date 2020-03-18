@@ -43,7 +43,7 @@ end
   level_class = "Lớp 5"
   time_per_session = 2
   fee = 150000
-  status = 0
+  status = 1
   status_teach = 0
   province_id = 22
   district_id = 240

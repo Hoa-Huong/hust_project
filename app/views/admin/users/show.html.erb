@@ -50,7 +50,11 @@
           </div>
           <div class="card-body">
             <div class="tab-content">
-              <!-- demand -->
+              <% if @demands.present? %>
+                <%= render partial: "demand_detail", collection: @demands, ad: "demand" %>
+              <% else %>
+                <p><%= t "not_present_demand" %></p>
+              <% end %>
             </div>
           </div>
         </div>
