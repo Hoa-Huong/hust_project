@@ -1,3 +1,70 @@
+@import "colors";
+
 .content-wrapper {
   min-height: 30rem;
+}
+
+.tab-content {
+  img.avatar-profile {
+    width: 11rem;
+    border-radius: 50%;
+    margin-left: 10%;
+  }
+  .name-profile {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.post {
+  color: $black;
+  line-height: 40px;
+  img.diploma {
+    width: 125px;
+  }
+}
+
+.alert.alert-danger, .alert.alert-alert {
+  position: absolute;
+  right: 10px;
+  top: 7rem;
+  color: $red;
+  font-weight: bolder;
+  background-color: $light_red;
+  z-index: 1;
+  border: none;
+}
+
+.alert.alert-success {
+  position: absolute;
+  right: 10px;
+  top: 7rem;
+  color: $green;
+  font-weight: bolder;
+  background-color: $light_green;
+  border: none;
+  z-index: 1;
+}
+
+.col-md-6.create-new-user{
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.required:after {
+  content:" *";
+  color: $red;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+p.error {
+  color: $red;
+}
+
+.field_with_errors input{
+  border: 1px solid $red !important;
 }

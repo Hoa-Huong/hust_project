@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load",function(){
   setTimeout(function(){
     $('.alert').remove()
-  }, 5000)
+  }, 8000)
 
   $(document).on('change', '.upload-img', function(){
     if (input.files && input.files[0]) {
@@ -47,4 +47,13 @@ $(document).on("turbolinks:load",function(){
     window.location = $(this).data('link')
   })
 
+  $(document).on('change', '.role input', function(){
+
+    if($('.role input:checked').val() == "teacher") {
+      $('.form-teacher').css("display", "block")
+    }
+    else {
+      $('.form-teacher').css("display", "none")
+    }
+  })
 });

@@ -29,14 +29,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       render :new
     end
-
     resource.avatar.attach(params[:avatar])
   end
 
   protected
 
   def configure_permitted_params
-    attr_sign_up_params = [:name, :email, :birth, :phone, :password, :password_confirmation, :avatar,
+    attr_sign_up_params = [:name, :email, :birth, :phone, :password, :password_confirmation, :avatar, :role,
       [teacher_attributes: [:diploma, :graduate, :address, :subject, :level_study, :province_id, :district_id, :introduce]]]
     attr_account_update_params = attr_sign_up_params << :current_password
     devise_parameter_sanitizer.permit :sign_up, keys: attr_sign_up_params
@@ -48,7 +47,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def attach_avatar
     unless resource.avatar.attached?
       resource.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
-        filename: "default-ava.jpeg"
+      filename: "default-ava.jpeg"
     end
   end
+
 end

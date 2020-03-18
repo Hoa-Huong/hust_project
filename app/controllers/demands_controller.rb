@@ -44,7 +44,7 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:user_id, :title, :subject, :fee, :time_per_session, :number_student, :note, :level_class, :province_id, :district_id)
+    params.require(:demand).permit(:user_id, :title, :subject, :fee, :time_per_session, :number_student, :note, :level_class, :province_id, :district_id, :address_detail)
   end
 
   def demand
@@ -54,4 +54,5 @@ class DemandsController < ApplicationController
     flash[:danger] = t "demand_not_found"
     redirect_to root_url
   end
+
 end

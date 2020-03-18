@@ -24,11 +24,10 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
       <% end %>
-
       <div class="content-wrapper">
         <%= yield %>
       </div>
-      <%= render "layouts/admin_footer" %>
     </div>
+    <%= render "layouts/admin_footer" %>
   </body>
 </html>
