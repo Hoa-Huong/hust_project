@@ -48,13 +48,17 @@
                     <i class="fa fa-book"></i>
                     <span><%= t "my_demand" %></span>
                   <% end %>
-                  <%= link_to teach_offers_path do %>
-                    <i class="fa fa-book"></i>
-                    <span><%= t "my_teach_offer" %></span>
+                  <% if can? :read, TeachOffer %>
+                    <%= link_to teach_offers_path do %>
+                      <i class="fa fa-book"></i>
+                      <span><%= t "my_teach_offer" %></span>
+                    <% end %>
                   <% end %>
-                  <%= link_to admin_dashboard_path do %>
-                    <i class="fa fa-tasks"></i>
-                    <span><%= t "manage_system" %></span>
+                  <% if current_user.admin? %>
+                    <%= link_to admin_dashboard_path do %>
+                      <i class="fa fa-tasks"></i>
+                      <span><%= t "manage_system" %></span>
+                    <% end %>
                   <% end %>
                   <%= link_to "#" do %>
                     <i class="fa fa-bell"></i>

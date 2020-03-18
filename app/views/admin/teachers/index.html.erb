@@ -1,0 +1,28 @@
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= t "manage_teacher" %></h3>
+        </div>
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th><%= t "name" %></th>
+                <th><%= t "email" %></th>
+                <th><%= t "phone" %></th>
+                <th><%= t "amount_demand_offered" %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @teachers %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

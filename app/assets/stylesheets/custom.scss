@@ -565,7 +565,7 @@ textarea#demand_note, textarea#teacher_introduce {
   background-color: $light_red;
 }
 
-.alert.alert-success {
+.alert.alert-success, .alert.alert-notice {
   position: absolute;
   right: 0;
   top: 10rem;

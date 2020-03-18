@@ -4,7 +4,7 @@ class Teacher < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :province
   belongs_to :district
-  has_many :teach_offers, dependent: :destroy
+  has_many :teach_offers, dependent: :restrict_with_exception
 
   ratyrate_rateable "point"
 
@@ -12,7 +12,7 @@ class Teacher < ApplicationRecord
 
   has_one_attached :diploma
 
-  delegate :avatar,:name, :birth, to: :user, prefix: true
+  delegate :avatar,:name, :birth, :email, :phone,  to: :user, prefix: true
   delegate :name, to: :province, prefix: true
   delegate :name, to: :district, prefix: true
 end
