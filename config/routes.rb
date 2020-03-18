@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root to: "static_pages#home"
     devise_for :users, controllers: { registrations: "users/registrations" }
-    resources :demands
+    resources :demands do
+      collection do
+        match 'search' => 'demands#search', via: [:get, :post], as: :search
+     end
+   end
     resources :teachers
     resources :teach_offers
 
@@ -17,10 +21,20 @@ Rails.application.routes.draw do
     post '/rate' => 'rater#create', :as => 'rate'
 
     namespace :admin do
-      resources :users, except: [:edit, :update]
-      resources :teachers
+      resources :users, except: [:edit, :update] do
+        member do
+          delete :detroy_demand, to: "users#destroy_demand"
+        end
+      end
+      resources :teachers do
+        member do
+          delete :detroy_demand, to: "teachers#destroy_demand"
+        end
+      end
       resources :demands
       resources :teach_offers
+      resources :comments, except: [:edit, :update, :show]
+      resources :charts, only: :index
     end
   end
 end

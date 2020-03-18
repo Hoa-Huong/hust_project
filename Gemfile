@@ -24,6 +24,9 @@ gem 'kaminari'
 gem 'ratyrate', :github => 'wazery/ratyrate'
 gem 'sprockets-rails', '2.3.3'
 gem 'cancancan'
+gem 'groupdate'
+gem "chartkick"
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

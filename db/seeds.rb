@@ -43,7 +43,7 @@ end
   level_class = "Lớp 5"
   time_per_session = 2
   fee = 150000
-  status = 0
+  status = 1
   status_teach = 0
   province_id = 22
   district_id = 240
@@ -52,9 +52,8 @@ end
   Demand.create!(user_id: user_id, subject: subject, number_student: number_student, level_class: level_class, time_per_session: time_per_session, fee: fee, status: status, status_teach: status_teach, note: note, title: title, province_id: province_id, district_id: district_id, address_detail: address_detail)
 end
 
-15.times do |n|
-  user_ids = User.teacher.ids
-  user_id = user_ids.sample
+User.teacher.ids.each do |n|
+  user_id = n
   graduate = "Trường Đại học Bách khoa Hà Nội"
   address = "Số 5 ngách 15/5 Ngoc Gốc đề Đường Minh Khai"
   province_id = 22
@@ -68,9 +67,9 @@ end
   teacher.save
 end
 
-10.times do |n|
+100.times do |n|
   teacher_ids = Teacher.ids
-  teacher_id = teacher_ids.sample
+  teacher_id = Teacher.ids.sample
   demand_ids = Demand.ids
   demand_id = demand_ids.sample
   TeachOffer.create(teacher_id: teacher_id, demand_id: demand_id)

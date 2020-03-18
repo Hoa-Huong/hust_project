@@ -3,7 +3,8 @@ class TeachersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @teachers = Teacher.page(params[:page]).per Settings.num_teacher_index
+    @q = Teacher.search(params[:q])
+    @teachers = @q.result.page(params[:page]).per Settings.num_teacher_index
   end
 
   def new
@@ -11,10 +12,10 @@ class TeachersController < ApplicationController
   end
 
   def create
-    byebug
     @teacher = Teacher.new teacher_params
     @teacher.user_id = current_user.id
     if @teacher.save
+      @teacher.user.update role: 2
       flash[:success] = t "be_teacher_success"
       redirect_to demands_path
     else

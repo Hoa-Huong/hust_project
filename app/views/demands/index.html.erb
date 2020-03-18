@@ -1,6 +1,38 @@
+<div class="row search">
+  <%= search_form_for @search do |f| %>
+    <div class="col-sm-1">
+      <%= f.label t("search") %>:
+    </div>
+    <div class="col-sm-2">
+      <div class="search-header">
+        <div class="form-item form-type-textfield form-item-key">
+          <%= f.collection_select :province_id_eq, Province.order(:name), :id, :name, prompt: t("province") %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="search-header">
+        <div class="form-item form-type-textfield form-item-key">
+          <%= f.grouped_collection_select :district_id_eq, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="search-header">
+        <div class="form-item form-type-textfield form-item-key">
+          <%= f.search_field :subject_or_level_class_cont_any, placeholder: "Tìm nhu cầu theo môn học và trình độ", class: "form-control form-text" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <%= f.submit t("search"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 <div class="col-sm-11">
   <div class="view-header">
     <span><%= t "demand_good" %></span>
   </div>
   <%= render @demands %>
 </div>
+<%= paginate @demands %>

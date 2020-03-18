@@ -1,8 +1,8 @@
 en:
-  login: Login
-  signup: Sign up
-  logo: Zinza teacher
-  sp_advisory: Support & Advisory
+  login: "Login"
+  signup: "Sign up"
+  logo: "Zinza teacher"
+  sp_advisory: "Support & Advisory"
   hotline: "Hotline: 1900.63.63.42"
   advisory_online: "Advisory online: 0378578484"
   tcgd: "© 2020 Vietnamese educational organization"
@@ -24,28 +24,28 @@ en:
   send_reset_pwd: "Send me reset password instructions"
   forget_pwd: "Forgot your password?"
   change_pwd: "Change your password"
-  resend_conf: Resend confirmation instructions
-  welcome: Welcome
-  you_cof_acc: You can confirm your account email through the link below
-  cf_acc: Confirm my account
-  email_is_change: We're contacting you to notify you that your email is being changed to
-  email_has_changed: We're contacting you to notify you that your email has been changed to
-  hello: Hello
-  pwd_changes: We're contacting you to notify you that your password has been changed.
-  link_reset_pwd: Someone has requested a link to change your password. You can do this through the link below.
-  change_pwd: Change my password
-  ignore_email: If you didn't request this, please ignore this email.
-  pwd_not_change_until: Your password won't change until you access the link above and create a new one.
-  acc_lock: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
-  click_unlock: Click the link below to unlock your account
-  unlock_acc: Unlock my account
-  back: Back
-  not_recieve_conf: "Didn't receive confirmation instructions?"
-  not_recieve_unlock: Didn't receive unlock instructions?
-  resend_unlock: Resend unlock instructions
-  morning: Morning
-  afternoon: Afternoon
-  night: Night
+  resend_conf: "Resend confirmation instructions"
+  welcome: "Welcome"
+  you_cof_acc: "You can confirm your account email through the link below"
+  cf_acc: "Confirm my account"
+  email_is_change: "We're contacting you to notify you that your email is being changed to"
+  email_has_changed: "We're contacting you to notify you that your email has been changed to"
+  hello: "Hello"
+  pwd_changes: "We're contacting you to notify you that your password has been changed."
+  link_reset_pwd: "Someone has requested a link to change your password. You can do this through the link below."
+  change_pwd: "Change my password"
+  ignore_email: "If you didn't request this, please ignore this email."
+  pwd_not_change_until: "Your password won't change until you access the link above and create a new one."
+  acc_lock: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  click_unlock: "Click the link below to unlock your account"
+  unlock_acc: "Unlock my account"
+  back: "Back"
+  not_recieve_conf: Didn't receive confirmation instructions?"
+  not_recieve_unlock: "Didn't receive unlock instructions?"
+  resend_unlock: "Resend unlock instructions"
+  morning: "Morning"
+  afternoon: "Afternoon"
+  night: "Night"
   update_demand_success: "Demand updated successfully"
   create_demand_success: "Demand created successfully"
   update_demand_fail: "Demand updated fail"
@@ -65,7 +65,7 @@ en:
   province: "Province / City"
   district: "District"
   ex_addr: "No.5, alley 15/5 Alley, De street, Minh Khai street"
-  note: Describe the content you want to learn
+  note: "Describe the content you want to learn"
   post_demand: Post demand
   change_demand: "Change demand"
   demand_good: "Class that suits you"
@@ -78,7 +78,7 @@ en:
   My_demand: "My demand"
   notification: "Notification"
   logout: "Log out"
-  home: "home"
+  home: "Home"
   ex_title: "For example, how the English English family 7 people completed, Hanoi"
   graduate: "Graduate at"
   address: "Address"
@@ -98,8 +98,8 @@ en:
   ex_intr: "Introduce yourself"
   change: "Save"
   not_my_demand: "You do not have any demands"
-  details: Details
-  good_teacher: Suitable teacher
+  details: "Details"
+  good_teacher: "Suitable teacher"
   imformation_teacher: "Details imformation teacher"
   intr_expirience: "General introduction and tutoring, teaching experience"
   diploma: "Diploma"
@@ -110,6 +110,7 @@ en:
   time_offer: "Time Offer"
   pending: "Pending"
   approved: "Approved"
+  approve: "Approve"
   unanproved: "Unapproved"
   offer_before: "You chosen this teacher offer before"
   teach_offer_success: "Offer this demand sucessfully"
@@ -120,16 +121,15 @@ en:
   index: "Index"
   not_be_teacher: "You are not a teacher. Please signup to become."
   not_found_teach_offer: "Teach offer not found"
-  be_teacher: Sign up to be teacher
+  be_teacher: "Sign up to be teacher"
   contact: "Contact"
   manage_user: "Management Demander"
   manage_teacher: "Management Teacher"
-  manage_demander: "Management Demander"
   manage_guest: "Management Guest"
   manage_demand: "Management Demand"
   manage_teach_offer: "Management Teach Offer"
   manage_comment: "Management Comment"
-  manage_revenue: "Management Revenue"
+  manage_efficiency: "Management Efficiency"
   new_offer: "New teach offer"
   new_demand: "New Demand"
   revenue: "Revenue"
@@ -153,13 +153,47 @@ en:
   demand_posted: " Demand posted"
   demand_offered: "Demand offer"
   teacher_profile: "Teacher profile"
-  not_be_teacher: "User is not a teacher"
   create_new_user_success: "Create new user is successful"
   del_user_success: "Delete user is successful"
   del_user_fail: "Delete user is fail"
+  del_teacher_success: "Delete teacher is successful"
+  del_teacher_fail: "Delete teacher is fail"
   profile: "Profile"
   user_profile: "User Profile"
   current_pwd: "Current password *"
   manage_system: "Manage system"
   be_teacher_success: "Become teacher sccessful"
   be_teacher_fail: "Become teacher fail"
+  edit_profile: "Edit profile"
+  amount_demand_offered: "Amount offrered demand"
+  demand_detail: :Demand detail
+  demand: "Demand"
+  demander: "Demander Name"
+  status: "Status"
+  update_demand_success: "Demand update successfully"
+  update_demand_fail: "Demand update fail"
+  del_demand_success: "Delete demand successfully"
+  del_demand_fail: "Delete demand fail"
+  not_present_demand: "There is no demand"
+  point: "Point"
+  status_teach: "Status Demand"
+  teacher: "Teacher"
+  contact_teacher: "Contact teacher"
+  notFound: "Finding teacher"
+  found: "Found teacher"
+  update_teach_offer_success: "Offer updated successfully"
+  update_teach_offer_fail: "Offer updated fail"
+  edit_teacher_offer: Edit teach offer
+  time_post: "Time post"
+  profile_teacher: "Profile teacher"
+  comment_user: "Comment user"
+  content: "Content"
+  create_comment_success: "Create comment successfully"
+  create_comment: "Create comment"
+  export: "Export excel"
+  search: "Search"
+  chart_user: "Diagram: System user registration"
+  chart_teacher: "Chart: System registration tutor"
+  chart_fee: "Revenue group by day"
+  chart_demand: "Graph: Demand posted in the system"
+  chart_teach_offer: "Diagram: Recommend teaching in the system"

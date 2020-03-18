@@ -27,8 +27,9 @@ class CommentsController < ApplicationController
     if @comment.update params_comment
       respond_to :js
     else
-      flash[:danger] = t "update_comment_fail"
-      redirect_to teacher_path @teacher
+      respond_to do |format|
+        format.js{render "alert(#{t('update_comment_fail')});"}
+      end
     end
   end
 
@@ -36,8 +37,9 @@ class CommentsController < ApplicationController
     if @comment.destroy
       respond_to :js
     else
-      flash[:danger] = t "del_comment_fail"
-      redirect_to teacher_path @teacher
+      respond_to do |format|
+        format.js{render "alert(#{t('del_comment_fail')});"}
+      end
     end
   end
 

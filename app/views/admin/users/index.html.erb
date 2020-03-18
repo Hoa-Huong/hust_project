@@ -9,6 +9,12 @@
             <%= t "create_user" %>
           <% end %>
         </div>
+        <div class="btn-export">
+          <%= link_to admin_users_path(format: 'xls'), class: "btn btn-success export" do %>
+            <i class="fas fa-download"></i>
+            <%= t "export" %>
+          <% end %>
+        </div>
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>

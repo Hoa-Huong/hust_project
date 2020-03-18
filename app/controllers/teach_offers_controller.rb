@@ -4,7 +4,7 @@ class TeachOffersController < ApplicationController
   before_action :teach_offer, only: :destroy
 
   def index
-    @teach_offers = current_user.teacher.teach_offers
+    @teach_offers = current_user.teacher.teach_offers.page(params[:page])
   end
 
   def create
@@ -39,9 +39,8 @@ class TeachOffersController < ApplicationController
 
   def check_teacher
     return if current_user.teacher?
-
     flash[:notice] = t "not_be_teacher"
-    redirect_to edit_user_registration_path
+    redirect_to root_path
   end
 
   def teach_offer

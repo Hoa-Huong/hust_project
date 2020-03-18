@@ -1,0 +1,29 @@
+<tr class="teach_offer_<%= teach_offer.id %>">
+  <td></td>
+  <td><%= teach_offer.user.name %></td>
+  <td><%= teach_offer.teacher_user_name %></td>
+  <td><%= teach_offer.teacher_user_phone %></td>
+  <td>
+    <% if teach_offer.pending? %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "pending" %></p></strong>
+    <% elsif teach_offer.approved? %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "approved" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "unapproved" %></p></strong>
+    <% end %>
+  </td>
+  <td class="project-actions text-center">
+    <%= link_to admin_teach_offer_path(teach_offer), class: "btn btn-primary btn-sm" do %>
+      <i class="fa fa-folder"></i>
+      <%= t"view" %>
+    <% end %>
+    <%= link_to edit_admin_teach_offer_path(teach_offer),remote: true, data: {toggle: "modal"}, data: {target: "#modal-window"}, class: "btn btn-info btn-sm" do %>
+      <i class="fas fa-pencil-alt"></i>
+      <%= t "edit" %>
+    <% end %>
+    <%= link_to admin_teach_offer_path(teach_offer), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-trash"></i>
+      <%= t "del" %>
+    <% end %>
+  </td>
+</tr>
