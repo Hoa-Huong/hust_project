@@ -39,7 +39,6 @@ class TeachOffersController < ApplicationController
 
   def check_teacher
     return if current_user.teacher?
-
     flash[:notice] = t "not_be_teacher"
     redirect_to root_path
   end

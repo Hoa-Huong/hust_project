@@ -178,3 +178,12 @@ en:
   not_present_demand: "There is no demand"
   point: "Point"
   status_teach: "Status Demand"
+  teacher: "Teacher"
+  contact_teacher: "Contact teacher"
+  notFound: "Finding teacher"
+  found: "Found teacher"
+  update_teach_offer_success: "Offer updated successfully"
+  update_teach_offer_fail: "Offer updated fail"
+  edit_teacher_offer: Edit teach offer
+  time_post: "Time post"
+  profile_teacher: "Profile teacher"

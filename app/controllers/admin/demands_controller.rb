@@ -2,7 +2,7 @@ class Admin::DemandsController < AdminController
   before_action :demand, only: [:show, :update, :destroy]
 
   def index
-    @demands = Demand.all
+    @demands = Demand.includes(:user)
   end
 
   def show

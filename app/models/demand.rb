@@ -11,7 +11,7 @@ class Demand < ApplicationRecord
   enum status: {pending: 0, approved: 1, unapproved: 2}
   enum status_teach: {found: 1, notFound: 0}
 
-  delegate :name, :phone, to: :user, prefix: true
+  delegate :name, :phone, :email, :avatar, to: :user, prefix: true
   delegate :name, to: :province, prefix: true
   delegate :name, to: :district, prefix: true
 

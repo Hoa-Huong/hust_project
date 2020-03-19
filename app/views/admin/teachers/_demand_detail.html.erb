@@ -18,7 +18,7 @@
     <% end %>
   </td>
   <td>
-    <%= link_to detroy_demand_admin_user_path(demand_id: demand.id, user_id: @user.id), method: :delete, data: { confirm: t("confirm") }, class: "btn-delete" do %>
+    <%= link_to detroy_demand_admin_teacher_path(demand_id: demand.id, teacher_id: @teacher.id), method: :delete, data: { confirm: t("confirm") }, class: "btn-delete" do %>
       <i class="fa fa-trash"></i>
     <% end %>
   </td>

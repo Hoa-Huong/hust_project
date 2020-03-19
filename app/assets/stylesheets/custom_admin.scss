@@ -101,4 +101,34 @@ span.float-right.title {
 
 p.status_notFound {
   color: $vivid_orange;
+  display: inline;
+}
+
+.modal-header {
+  position: relative;
+  h4#myModalLabel {
+    position: absolute;
+  }
+}
+
+table.table.table-hover {
+  background-color: $white;
+  line-height: 14px;
+  tbody tr::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+    margin-left: 22px;
+    margin-top: 13px;
+    position: absolute;
+  }
+}
+
+tr {
+  cursor: pointer;
+  border-bottom: solid 2px $very_light_gray;
+  position: relative;
+}
+
+body {
+  counter-reset: my-sec-counter;
 }

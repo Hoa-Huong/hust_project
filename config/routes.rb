@@ -17,8 +17,16 @@ Rails.application.routes.draw do
     post '/rate' => 'rater#create', :as => 'rate'
 
     namespace :admin do
-      resources :users, except: [:edit, :update]
-      resources :teachers
+      resources :users, except: [:edit, :update] do
+        member do
+          delete :detroy_demand, to: "users#destroy_demand"
+        end
+      end
+      resources :teachers do
+        member do
+          delete :detroy_demand, to: "teachers#destroy_demand"
+        end
+      end
       resources :demands
       resources :teach_offers
     end

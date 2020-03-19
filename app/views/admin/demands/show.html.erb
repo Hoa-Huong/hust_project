@@ -76,8 +76,35 @@
 
             <p class="text-muted"><%= @demand.note %></p>
             <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                  <strong><i class="fas fa-toggle-on"></i></i> <%= t "status" %></strong>
+                  <span class="text-muted">
+                    <% if @demand.pending? %>
+                      <p class="status_<%= @demand.status %>"><%= t "pending" %></p>
+                    <% elsif @demand.approved? %>
+                      <p class="status_<%= @demand.status %>"><%= t "approved" %></p>
+                    <% else %>
+                      <p class="status_<%= @demand.status %>"><%= t "unapproved" %></p>
+                    <% end %>
+                  </span>
+                </div>
+                <div class="col-sm-6">
+                  <strong><i class="fas fa-toggle-on"></i></i> <%= t "status_teach" %></strong>
+                  <span class="text-muted">
+                    <% if @demand.notFound? %>
+                      <p class="status_<%= @demand.status_teach %>"><%= t "notFound" %></p>
+                    <% else %>
+                      <p class="status_<%= @demand.status_teach %>"><%= t "found" %></p>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr>
 
             <%= render "button_edit_status" %>
+            <hr>
           </div>
           <!-- /.card-body -->
         </div>
