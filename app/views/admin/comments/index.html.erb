@@ -1,0 +1,35 @@
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= t "manage_comment" %></h3>
+          <%= link_to new_admin_comment_path,remote: true, data: {toggle: "modal"}, data: {target: "#modal-window"}, class: "btn btn-inline btn-outline-success btn-flat float-right" do %>
+            <i class="fa fa-plus-square"></i>
+            <%= t "create_comment" %>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th><%= t "comment_user" %></th>
+                <th><%= t "content" %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @comments %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>

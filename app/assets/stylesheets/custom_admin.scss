@@ -132,3 +132,15 @@ tr {
 body {
   counter-reset: my-sec-counter;
 }
+
+.row.comment-teacher {
+  margin-top: 1rem;
+  select#comment_teacher_id {
+    width: 100%;
+    height: 28px;
+    color: black;
+    background: $light_grayish_red;
+  }
+}
+
+

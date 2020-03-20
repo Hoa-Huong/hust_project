@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       end
       resources :demands
       resources :teach_offers
+      resources :comments, except: [:edit, :update, :show]
     end
   end
 end

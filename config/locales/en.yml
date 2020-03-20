@@ -187,3 +187,7 @@ en:
   edit_teacher_offer: Edit teach offer
   time_post: "Time post"
   profile_teacher: "Profile teacher"
+  comment_user: "Comment user"
+  content: "Content"
+  create_comment_success: "Create comment successfully"
+  create_comment: "Create comment"

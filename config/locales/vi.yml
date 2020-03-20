@@ -183,3 +183,7 @@ vi:
   edit_teacher_offer: "Thay đổi đề nghị"
   time_post: "Thời gian đăng"
   profile_teacher: "Thông tin gia sư"
+  comment_user: "Người bình luận"
+  content: "Nội dung bình luận"
+  create_comment_success: "Tạo bình luận thành công"
+  create_comment: "Tạo bình luận"
