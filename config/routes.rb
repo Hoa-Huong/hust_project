@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :demands
       resources :teach_offers
       resources :comments, except: [:edit, :update, :show]
+      resources :charts, only: :index
     end
   end
 end
