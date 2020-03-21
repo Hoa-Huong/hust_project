@@ -17,4 +17,16 @@ class Demand < ApplicationRecord
 
   default_scope {order created_at: :desc }
   scope :demand_approved, -> {where status: 1}
+
+  def self.to_csv
+    attributes = %w{id user_name user_email user_phone title subject level_class number_student time_per_session fee address_detail district_name province_name}
+
+    CSV.generate do |csv|
+      csv << attributes
+
+      all.each do |demand|
+        csv << attributes.map{ |attr| demand.send(attr) }
+      end
+    end
+  end
 end

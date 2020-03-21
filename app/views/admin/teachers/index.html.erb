@@ -5,6 +5,12 @@
         <div class="card-header">
           <h3 class="card-title"><%= t "manage_teacher" %></h3>
         </div>
+        <div class="btn-export">
+          <%= link_to admin_teachers_path(format: 'xls'), class: "btn btn-success export" do %>
+            <i class="fas fa-download"></i>
+            <%= t "export" %>
+          <% end %>
+        </div>
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>

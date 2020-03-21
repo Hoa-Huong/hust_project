@@ -5,6 +5,12 @@
         <div class="card-header">
           <h3 class="card-title"><%= t "manage_demand" %></h3>
         </div>
+        <div class="btn-export">
+          <%= link_to admin_demands_path(format: 'xls'), class: "btn btn-success export" do %>
+            <i class="fas fa-download"></i>
+            <%= t "export" %>
+          <% end %>
+        </div>
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
@@ -14,7 +20,7 @@
                 <th><%= t "phone" %></th>
                 <th><%= t "title" %></th>
                 <th><%= t "status" %></th>
-                <th><%= t "status_teach" %></th>
+                <th style="width: 99.5686px;"><%= t "status_teach" %></th>
                 <th></th>
               </tr>
             </thead>

@@ -1,6 +1,7 @@
 <tr class="comment_<%= comment.id %>">
   <td></td>
   <td><%= comment.user_name %></td>
+  <td><%= comment.teacher_user_name %></td>
   <td><%= comment.content %></td>
   <td class="project-actions text-center">
     <%= link_to admin_comment_path(comment), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: t("confirm")}, remote: true do %>

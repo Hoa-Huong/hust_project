@@ -7,4 +7,5 @@ class Comment < ApplicationRecord
   default_scope {order created_at: :desc }
 
   delegate :name, :avatar, to: :user, prefix: true
+  delegate :user_name, to: :teacher,prefix: true
 end

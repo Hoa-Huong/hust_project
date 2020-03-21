@@ -5,6 +5,10 @@ class Admin::UsersController < AdminController
 
   def index
     @users = User.demand
+    respond_to do |format|
+      format.html
+      format.xls { send_data @users.to_csv }
+    end
   end
 
   def show

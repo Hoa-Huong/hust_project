@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t "index" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "name" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "email" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "phone" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "birth" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "graduate" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "address" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "subject" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "level_teach" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t "introduce" %></Data></Cell>
+      </Row>
+      <% @demands.each do |demand| %>
+        <Row>
+          <Cell><Data ss:Type="Number"><%= demand.id %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= demand.user_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= demand.user_email %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.user_phone %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.user_birth %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.graduate %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.address %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.subject %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.level_study %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= demand.introduce %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

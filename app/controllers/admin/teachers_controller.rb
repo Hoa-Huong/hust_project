@@ -3,6 +3,10 @@ class Admin::TeachersController < AdminController
   before_action :teacher_demand, :demand, only: :destroy_demand
   def index
     @teachers = Teacher.includes(:user, :teach_offers)
+    respond_to do |format|
+      format.html
+      format.xls { send_data @teachers.to_csv }
+    end
   end
 
   def show

@@ -3,6 +3,10 @@ class Admin::DemandsController < AdminController
 
   def index
     @demands = Demand.includes(:user)
+    respond_to do |format|
+      format.html
+      format.xls { send_data @demands.to_csv }
+    end
   end
 
   def show
