@@ -3,7 +3,8 @@ class TeachersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @teachers = Teacher.page(params[:page]).per Settings.num_teacher_index
+    @search = Teacher.search(params[:q])
+    @teachers = @search.result.page(params[:page]).per Settings.num_teacher_index
   end
 
   def new
