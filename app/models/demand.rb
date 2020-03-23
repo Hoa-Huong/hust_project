@@ -19,13 +19,13 @@ class Demand < ApplicationRecord
   scope :demand_approved, -> {where status: 1}
 
   def self.to_csv
-    attributes = %w{id user_name user_email user_phone title subject level_class number_student time_per_session fee address_detail district_name province_name}
+    attributes = %w{user_name user_email user_phone title subject level_class number_student time_per_session fee address_detail district_name province_name}
+    header = attributes.map { |attr| I18n.t("#{attr}") }
 
     CSV.generate do |csv|
-      csv << attributes
-
+      csv << header
       all.each do |demand|
-        csv << attributes.map{ |attr| demand.send(attr) }
+        csv << attributes.map{ |attr| demand.public_send(attr) }
       end
     end
   end

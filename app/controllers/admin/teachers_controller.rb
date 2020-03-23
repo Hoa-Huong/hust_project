@@ -5,7 +5,7 @@ class Admin::TeachersController < AdminController
     @teachers = Teacher.includes(:user, :teach_offers)
     respond_to do |format|
       format.html
-      format.xls { send_data @teachers.to_csv }
+      format.xls { send_data @teachers.to_csv, filename: "Teacher_list.xls" }
     end
   end
 

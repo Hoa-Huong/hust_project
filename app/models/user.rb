@@ -29,13 +29,12 @@ class User < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id name email birth phone}
-
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
-
+    attributes = %w{name email birth phone}
+    header = attributes.map { |attr| I18n.t("#{attr}") }
+    CSV.generate do |csv|
+      csv << header
       all.each do |user|
-        csv << attributes.map{ |attr| user.send(attr) }
+        csv << attributes.map{ |attr| user.public_send(attr) }
       end
     end
   end

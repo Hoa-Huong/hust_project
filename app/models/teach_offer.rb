@@ -5,7 +5,7 @@ class TeachOffer < ApplicationRecord
 
   enum status: {pending: 0, approved: 1, unapproved: 2}
 
-  delegate :title, to: :demand, prefix: true
+  delegate :title, :fee, to: :demand, prefix: true
   delegate :user_name, :user_phone, :user_email, to: :teacher, prefix: true
   delegate :user_name, to: :demand, prefix: true
 

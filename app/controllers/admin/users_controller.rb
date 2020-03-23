@@ -7,7 +7,7 @@ class Admin::UsersController < AdminController
     @users = User.demand
     respond_to do |format|
       format.html
-      format.xls { send_data @users.to_csv }
+      format.xls { send_data @users.to_csv, filename: "User_list.xls" }
     end
   end
 

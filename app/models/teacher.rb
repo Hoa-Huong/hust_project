@@ -17,13 +17,12 @@ class Teacher < ApplicationRecord
   delegate :name, to: :district, prefix: true
 
   def self.to_csv
-    attributes = %i{id user_name user_email user_birth user_phone graduate address subject level_study}
-
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
-
+    attributes = %i{user_name user_email user_birth user_phone graduate address subject level_study}
+    header = attributes.map { |attr| I18n.t("#{attr}") }
+    CSV.generate do |csv|
+      csv << header
       all.each do |teacher|
-        csv << attributes.map{ |attr| teacher.send(attr) }
+        csv << attributes.map{ |attr| teacher.public_send(attr) }
       end
     end
   end

@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
   end
 
   def search_global
-    @search = Demand.search(params[:q])
+    @search = Demand.ransack(params[:q])
   end
 
   def search
-   index
-   render :index
- end
+    index
+    render :index
+  end
 
   private
 
@@ -24,4 +24,5 @@ class ApplicationController < ActionController::Base
   def default_url_options
     {locale: I18n.locale}
   end
+
 end
