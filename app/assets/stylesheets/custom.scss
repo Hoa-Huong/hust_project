@@ -153,8 +153,13 @@ nav#navbar-scroll {
   margin-top: 13rem;
   margin-bottom: 6rem;
   min-height: 25rem;
-  .row .col-sm-10.col-sm-push-1 {
-    background-color: $white;
+}
+
+.row.demands {
+  margin-top: -3rem;
+  .col-sm-10.col-sm-push-1{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -315,8 +320,8 @@ li i.fa.fa-caret-down {
   .right-item.col-md-10.col-xs-12 {
     span.span-normal {
       font-size: 13px;
-      color: $gray;
-      border: 1px solid $light_gray;
+      color: $vivid_orange;
+      border: 1px solid $vivid_orange;
       padding: 4px;
     }
     span.field_cost {
@@ -569,7 +574,7 @@ p.error {
 }
 
 .field_with_errors input ,.field_with_errors textarea#demand_note {
-  border: 1px solid red !important;
+  border-bottom: 1px solid red !important;
 }
 
 .row-request .one-row-class {
@@ -577,6 +582,10 @@ p.error {
   background: $white;
   position: relative;
   border-radius: 2px;
+  .row .col-md-8.col-sm-6 {
+    padding-left: 5rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .row-request-1 {
@@ -652,7 +661,7 @@ p.error {
   border: 1px solid transparent;
   opacity: 1;
   text-align: center;
-  float: right;
+  margin-right: 68px;
 }
 
 .row-request .row-request-4 .btn-yellow, a.btn-yellow.btn.ctools-use-modal.ctools-use-modal-processed {
@@ -718,10 +727,22 @@ section.header-study-group.bg-gradient-blue .container .row {
 }
 
 select {
+  display: block;
   width: 100%;
-  height: 28px;
-  color: black;
-  background: $light_grayish_red;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 input#demand_address_detail {
@@ -732,8 +753,8 @@ input#demand_address_detail {
 
 span.span-normal {
   font-size: 13px;
-  color: $gray;
-  border: 1px solid $light_gray;
+  color: $vivid_orange;
+  border: 1px solid $vivid_orange;
   padding: 4px;
 }
 
@@ -1227,21 +1248,20 @@ input#teacher_diploma {
   top: 22px;
 }
 
+.form-check {
+  display: inline;
+}
 
 .row.search {
   margin-left: 0px;
   margin-bottom: 2rem;
-  form#demand_search label {
-    margin-top: 7px;
-  }
-
-  input#q_subject_or_level_class_cont_any {
-    height: 30px;
-    margin-top: -1px;
-  }
-
-  input.btn.btn-primary {
-    height: 30px;
+  form#demand_search {
+    label {
+      margin-top: 7px;
+    }
+    .col-sm-1 {
+      padding-right: 0;
+    }
   }
 }
 

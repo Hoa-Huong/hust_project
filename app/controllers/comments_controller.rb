@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @teacher.comments.new params_comment
-    byebug
     @comment.user_id = current_user.id
     if @comment.save
       respond_to :js

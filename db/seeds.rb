@@ -1,3 +1,5 @@
+require 'uri'
+
 Comment.delete_all
 TeachOffer.delete_all
 Demand.delete_all
@@ -14,9 +16,17 @@ User.delete_all
   password_confirmation = "123456"
   confirmed_at = Time.now
   user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
-  user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+  avar = URI.encode Faker::Avatar.image
+
+  begin
+    ava_file = open(URI.parse(avar))
+    user.avatar.attach io: ava_file, filename: "image.png"
+    user.save
+  rescue OpenURI::HTTPError => e
+    user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
-  user.save
+  end
+
 end
 
 25.times do |n|
@@ -29,8 +39,15 @@ end
   password_confirmation = "123456"
   confirmed_at = Time.now
   user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
-  user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+  avar = URI.encode Faker::Avatar.image
+  begin
+    ava_file = open(URI.parse(avar))
+    user.avatar.attach io: ava_file, filename: "image.png"
+    user.save
+  rescue OpenURI::HTTPError => e
+    user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
+  end
   user.save
 end
 

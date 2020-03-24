@@ -19,9 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        render :new, location: after_inactive_sign_up_path_for(resource)
+        check_teacher
       end
     else
       resource.build_teacher if resource.teacher.blank?
@@ -48,6 +46,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless resource.avatar.attached?
       resource.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
       filename: "default-ava.jpeg"
+    end
+  end
+
+  def check_teacher
+    if resource.role == "teacher" && resource.teacher.nil?
+      flash[:danger] = t "fill_in_teacher"
+      resource.build_teacher if resource.teacher.blank?
+      render :new
+    else
+      set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+      expire_data_after_sign_in!
+      respond_with resource, location: after_inactive_sign_up_path_for(resource)
+    end
+  end
+
+  def check_teacher_again
+    if resource.role == "teacher" && resource.teacher.nil?
+      flash[:danger] = t "fill_in_teacher"
+      resource.build_teacher if resource.teacher.blank?
+      render :new
+    else
+      set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+      expire_data_after_sign_in!
+      respond_with resource, location: after_inactive_sign_up_path_for(resource)
     end
   end
 

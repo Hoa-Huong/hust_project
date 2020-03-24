@@ -58,7 +58,7 @@ en:
   title_demand: "Summarize love and find tutor (1 sentence, Keyword 100 characters)"
   subject: "Subject"
   class: "Class"
-  fee: "Fee (VND / month)"
+  fee: "Fee"
   time_per_session: "Number of hour per session"
   number_student: "Number of students"
   detail_address: "Specific address"

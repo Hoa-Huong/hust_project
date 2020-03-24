@@ -62,6 +62,13 @@ $(document).on("turbolinks:load",function(){
     window.location = $(this).data('link')
   })
 
+  if($('.role input:checked').val() == "teacher") {
+    $('.form-teacher').css("display", "block")
+  }
+  else {
+    $('.form-teacher').css("display", "none")
+  }
+
   $(document).on('change', '.role input', function(){
 
     if($('.role input:checked').val() == "teacher") {

@@ -101,7 +101,7 @@
                 <strong>
                   <i class="fas fa-book mr-1"></i><%= t "fee" %>:
                 </strong>
-                <span class="text-muted"><%= @demand.fee %> VNĐ</span>
+                <span class="text-muted"><%= number_to_currency(@demand.fee) %></span>
               </div>
             </div>
             <hr>

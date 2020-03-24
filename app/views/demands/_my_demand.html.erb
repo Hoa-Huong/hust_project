@@ -53,7 +53,7 @@
           <p>
             <i class="fa fa-money"></i>
             <%= t "fee" %>:
-            <span class="class-tutor-fee"><%= demand.fee %> vnđ</span>
+            <span class="class-tutor-fee"><%= number_to_currency(demand.fee) %></span>
           </p>
           <p>
             <i class="fa fa-history"></i>

@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-teacher">
-      <%= f.fields_for :teacher do |ff| %>
+      <%= f.fields_for :teacher, id: "form-teacher" do |ff| %>
         <div class="form-group">
           <div class="row">
             <div class="col-sm-2">
