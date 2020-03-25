@@ -1,7 +1,7 @@
 class Admin::CommentsController < AdminController
   before_action :comment, only: :destroy
   def index
-    @comments = Comment.includes(:user)
+    @comments = Comment.includes(teacher: [:user]).includes(:user)
   end
 
   def new

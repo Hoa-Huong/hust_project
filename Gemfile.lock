@@ -19,18 +19,6 @@ GIT
       i18n (>= 1.6, < 2)
 
 GIT
-  remote: https://github.com/sinatra/sinatra.git
-  revision: c47b74636dedd3994cc75d3c1b2cf678b0f39962
-  specs:
-    rack-protection (2.1.0)
-      rack
-    sinatra (2.1.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.1.0)
-      tilt (~> 2.0)
-
-GIT
   remote: https://github.com/wazery/ratyrate.git
   revision: 718e4f9e340e2c7fbf76e190f3bb298ce291b711
   specs:
@@ -123,7 +111,6 @@ GEM
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
-    connection_pool (2.2.2)
     crass (1.0.6)
     deep_merge (1.2.1)
     devise (4.7.1)
@@ -219,8 +206,6 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     msgpack (1.3.3)
-    mustermann (1.1.1)
-      ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -271,7 +256,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.1.3)
     regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -286,7 +270,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
-    ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
     rubyzip (2.2.0)
     sass-rails (6.0.0)
@@ -302,11 +285,6 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sidekiq (6.0.6)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -378,8 +356,6 @@ DEPENDENCIES
   rubocop (>= 0.49.0)
   sass-rails (>= 6)
   selenium-webdriver
-  sidekiq
-  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (= 2.3.3)
