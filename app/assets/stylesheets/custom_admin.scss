@@ -1,3 +1,160 @@
+@import "colors";
+
 .content-wrapper {
   min-height: 30rem;
+}
+
+.tab-content {
+  img.avatar-profile {
+    width: 11rem;
+    border-radius: 50%;
+    margin-left: 10%;
+  }
+  .name-profile {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.post {
+  color: $black;
+  line-height: 40px;
+  img.diploma {
+    width: 125px;
+  }
+}
+
+.alert.alert-danger, .alert.alert-alert {
+  position: absolute;
+  right: 10px;
+  top: 7rem;
+  color: $red;
+  font-weight: bolder;
+  background-color: $light_red;
+  z-index: 1;
+  border: none;
+}
+
+.alert.alert-success {
+  position: absolute;
+  right: 10px;
+  top: 7rem;
+  color: $green;
+  font-weight: bolder;
+  background-color: $light_green;
+  border: none;
+  z-index: 1;
+}
+
+.col-md-6.create-new-user{
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.required:after {
+  content:" *";
+  color: $red;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+p.error {
+  color: $red;
+}
+
+.field_with_errors input{
+  border: 1px solid $red !important;
+}
+
+.card-body {
+  line-height: 35px;
+}
+
+span.text-muted {
+  margin-left: 1rem;
+
+}
+span.text-muted.name:hover {
+  text-decoration: underline;
+}
+
+strong.level_class {
+  margin-left: 14rem;
+}
+
+p.status_approved, p.status_found {
+  color: $green;
+  display: inline;
+}
+
+p.status_unapproved {
+  color: $red;
+  display: inline;
+}
+
+span.float-right.title {
+  margin-top: -7px;
+}
+
+p.status_notFound {
+  color: $vivid_orange;
+  display: inline;
+}
+
+.modal-header {
+  position: relative;
+  h4#myModalLabel {
+    position: absolute;
+  }
+}
+
+table.table.table-hover {
+  background-color: $white;
+  line-height: 14px;
+  tbody tr::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+    margin-left: 22px;
+    margin-top: 13px;
+    position: absolute;
+  }
+}
+
+tr {
+  cursor: pointer;
+  border-bottom: solid 2px $very_light_gray;
+  position: relative;
+}
+
+body {
+  counter-reset: my-sec-counter;
+}
+
+.row.comment-teacher {
+  margin-top: 1rem;
+  select#comment_teacher_id {
+    width: 100%;
+    height: 28px;
+    color: black;
+    background: $light_grayish_red;
+  }
+}
+
+a.btn.btn-success.export {
+    float: right;
+    margin-right: 20px;
+    margin-top: 1rem;
+}
+
+div#chart-2, div#chart-1 {
+    padding: 11px;
+}
+
+p.chart {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
 }

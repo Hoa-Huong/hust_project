@@ -49,48 +49,24 @@ header {
   padding: 10px;
 }
 
-.search-header {
-  position: relative;
-  border: 1px solid $very_light_gray;
-  background: $white;
+button.search-demand {
+  background-color: #f6f6f6;
+  border: none;
+  cursor: pointer;
   height: 31px;
-  border-radius: 2px;
-  max-width: 350px;
-  padding-right: 42px;
-  input[type="text"] {
-    border: none;
-    box-shadow: none;
-    display: block;
-    width: 100%;
-    color: $black;
-    height: 100%;
-    border-radius: 2px;
-    font-size: 15px;
-  }
-  a {
-    background-color: $very_light_gray;
-    border: none;
-    cursor: pointer;
-    height: 31px;
-    width: 42px;
-    -webkit-border-radius: 0 2px 2px 0;
-    -moz-border-radius: 0 2px 2px 0;
-    -o-border-radius: 0 2px 2px 0;
-    border-radius: 0 2px 2px 0;
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    color: gray;
-    font-size: 16px;
-    line-height: 31px;
-    &:hover {
-      background-color: $white;
-    }
-    i.fa.fa-search {
-      margin-left: 14px;
-    }
-  }
+  width: 42px;
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+  -o-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+  position: absolute;
+  top: 18px;
+  right: 27px;
+  color: gray;
+  font-size: 16px;
+  line-height: 31px;
 }
+
 li {
   list-style: none;
   margin-left: 2rem;
@@ -177,6 +153,14 @@ nav#navbar-scroll {
   margin-top: 13rem;
   margin-bottom: 6rem;
   min-height: 25rem;
+}
+
+.row.demands {
+  margin-top: -3rem;
+  .col-sm-10.col-sm-push-1{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .login.teacher {
@@ -332,11 +316,12 @@ li i.fa.fa-caret-down {
   box-shadow: 0 0 0px 1px rgba(201,208,220,0.2), 0 1px 1px 1px rgba(20,23,28,.15);
   margin-bottom: 5px;
   background-color: $white;
+  height: 12rem;
   .right-item.col-md-10.col-xs-12 {
     span.span-normal {
       font-size: 13px;
-      color: $gray;
-      border: 1px solid $light_gray;
+      color: $vivid_orange;
+      border: 1px solid $vivid_orange;
       padding: 4px;
     }
     span.field_cost {
@@ -349,8 +334,13 @@ li i.fa.fa-caret-down {
 }
 
 img.rounded-circle {
-  width: 125px;
-  height: 125px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.row.role {
+  margin: 8px 0;
 }
 
 input#user_avatar {justify-content: end;margin-top: 10rem;}
@@ -543,29 +533,31 @@ input#demand_number_student {
   border: 0.5px solid $light_gray;
 }
 
-textarea#demand_note {
+textarea#demand_note, textarea#teacher_introduce {
   width: 100%;
   min-height: 150px;
   padding: 10px;
+  margin-top: 2rem;
 }
 
-.alert {
-  .alert-danger, .alert-alert {
-    position: absolute;
-    right: 0;
-    top: 10rem;
-    color: $red;
-    font-weight: bolder;
-    background-color: $light_red;
-  }
-  .alert-success {
-    position: absolute;
-    right: 0;
-    top: 10rem;
-    color: $green;
-    font-weight: bolder;
-    background-color: $light_green;
-  }
+.alert.alert-danger, .alert.alert-alert {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  color: $red;
+  font-weight: bolder;
+  background-color: $light_red;
+  z-index: 1;
+}
+
+.alert.alert-success, .alert.alert-notice {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  color: $green;
+  font-weight: bolder;
+  background-color: $light_green;
+  z-index: 1;
 }
 
 .required:after {
@@ -582,7 +574,7 @@ p.error {
 }
 
 .field_with_errors input ,.field_with_errors textarea#demand_note {
-  border: 1px solid red !important;
+  border-bottom: 1px solid red !important;
 }
 
 .row-request .one-row-class {
@@ -590,6 +582,10 @@ p.error {
   background: $white;
   position: relative;
   border-radius: 2px;
+  .row .col-md-8.col-sm-6 {
+    padding-left: 5rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .row-request-1 {
@@ -665,7 +661,7 @@ p.error {
   border: 1px solid transparent;
   opacity: 1;
   text-align: center;
-  float: right;
+  margin-right: 68px;
 }
 
 .row-request .row-request-4 .btn-yellow, a.btn-yellow.btn.ctools-use-modal.ctools-use-modal-processed {
@@ -731,10 +727,22 @@ section.header-study-group.bg-gradient-blue .container .row {
 }
 
 select {
+  display: block;
   width: 100%;
-  height: 28px;
-  color: black;
-  background: $light_grayish_red;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 input#demand_address_detail {
@@ -745,8 +753,8 @@ input#demand_address_detail {
 
 span.span-normal {
   font-size: 13px;
-  color: $gray;
-  border: 1px solid $light_gray;
+  color: $vivid_orange;
+  border: 1px solid $vivid_orange;
   padding: 4px;
 }
 
@@ -772,6 +780,8 @@ img.card-img-top {
   margin-top: 5rem;
   .col-sm-2 .card {
     width: 18rem;
+    padding-left: 5px;
+    padding-top: 3px;
     .card-body .name {
       white-space: nowrap;
       overflow: hidden;
@@ -900,10 +910,15 @@ span.p-user-name-text {
         font-weight: 700;
         color: $light_dark_grayish_red;
         border-bottom: 2px solid $dark_blue;
-        max-width: 150px;
+        max-width: 200px;
         min-width: 120px;
         margin-bottom: 10px;
         height: 35px;
+        span {
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: lowercase;
+        }
       }
     }
   }
@@ -977,12 +992,16 @@ input#user_diploma {
   margin-bottom: 15px;
 }
 
+.form-teacher {
+  display: none;
+}
+
+
 input#user_teacher_attributes_diploma {
   margin-top: 95px;
 }
 
 input.btn.btn-success {
-  margin-top: 8rem;
   color: $white;
   background-color: $vivid_orange;
   border: none;
@@ -999,6 +1018,7 @@ textarea#user_teacher_attributes_introduce {
   width: 100%;
   min-height: 100px;
   padding: 10px;
+  margin-top: 3rem;
 }
 
 input.btn-yellow.btn.ctools-use-modal.ctools-use-modal-processed {
@@ -1193,4 +1213,64 @@ form.edit_comment {
     background-color: $dark_blue;
     color: $white;
   }
+}
+
+form {
+  .input-group {
+    margin-bottom: 32px;
+    border-bottom: 1px solid $light_gray;
+    width: 100%;
+    input {
+      margin-bottom: 32px;
+      border-bottom: 1px solid $light_gray;
+      padding: 9px 0;
+      color: $black;
+      font-size: 16px;
+      font-weight: 500;
+      outline: none;
+      margin: 0;
+      border: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
+
+input.upload-img {
+  position: absolute;
+  top: -43px;
+}
+
+input#teacher_diploma {
+  position: absolute;
+  top: 22px;
+}
+
+.form-check {
+  display: inline;
+}
+
+.row.search {
+  margin-left: 0px;
+  margin-bottom: 2rem;
+  form#demand_search {
+    label {
+      margin-top: 7px;
+    }
+    .col-sm-1 {
+      padding-right: 0;
+    }
+  }
+}
+
+form#teacher_search .col-sm-1.col-sm-push-8 {
+  margin-top: 7px;
+}
+
+input#edit-key {
+  width: 36rem;
+  margin-top: -2px;
+  margin-left: -3px;
 }

@@ -1,144 +1,117 @@
 <div class="container">
-  <div class="login">
-    <h2 style="text-align: center; margin-top: 0px;">Edit <%= resource_name.to_s.humanize %></h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="error">
-        <%= render "devise/shared/error_messages", resource: resource %>
-      </div>
+  <div class="row">
+    <div class="login col-sm-6 col-sm-push-3">
+      <h2 style="text-align: center; margin-top: 0px;"><%= t "edit_profile" %></h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-      <div class="col-sm-6">
         <div class="form-group">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2">
               <%= image_tag(current_user.avatar, size: "125x125", class: "rounded-circle") %>
             </div>
-            <div class="col-sm-8">
-              <%= f.file_field :avatar %>
+            <div class="col-sm-10">
+              <%= f.file_field :avatar, class: "upload-img" %>
             </div>
           </div>
         </div>
 
-        <div class="field">
-          <div class="col-sm-3 required">
-            <%= f.label t("name") %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_name") %>
+            </div>
           </div>
-          <div class="col-sm-9">
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_name") %>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "input--style-2" %>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <div class="col-sm-3 required">
-            <%= f.label t("email") %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input--style-2", placeholder: t("ex_mail") %>
+            </div>
           </div>
-          <div class="col-sm-9">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t("ex_mail") %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="col-sm-3 required">
-            <%= f.label t("phone") %>
-          </div>
-          <div class="col-sm-9">
-            <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control", placeholder: t("ex_phone") %>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "input--style-2", placeholder: t("ex_phone") %>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <div class="col-sm-3 required">
-            <%= f.label t("birth") %>
-          </div>
-          <div class="col-sm-9">
-            <%= f.date_field :birth, autofocus: true, autocomplete: "birth", max: Date.today, class: "form-control" %>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="input-group">
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "input--style-2", placeholder: t("current_pwd") %>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.password_field :password, autocomplete: "new-password", class: "input--style-2", placeholder: t("ex_pwd") %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input--style-2", placeholder: t("ex_pwd_conf") %>
+            </div>
+          </div>
         </div>
+        <div class="form-teacher-edit">
+          <%= f.fields_for :teacher do |ff| %>
+            <h2>Hồ sơ gia sư</h2>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
+                </div>
+                <div class="col-sm-3">
+                  <%= ff.file_field :diploma, class: "upload-img" %>
+                </div>
+              </div>
+            </div>
 
-        <div class="field">
-          <%= f.label t("pwd") %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> <%= t "characters_minimum" %>)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label t("pwd_cf") %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="col-sm-6 form-teacher">
-        <%= f.fields_for :teacher, resource.teacher || resource.build_teacher do |ff| %>
-          <div class="row">
-            <div class="col-sm-4">
-              <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <%= ff.text_field :graduate, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_graduate") %>
+              </div>
             </div>
-            <div class="col-sm-8">
-              <%= ff.file_field :diploma, class: "upload-img" %>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <%= ff.text_field :address, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_addr") %>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("graduate") %>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <%= ff.text_field :subject, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_suject_teach") %>
+              </div>
             </div>
-            <div class="col-sm-9">
-              <%= ff.text_field :graduate, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_graduate") %>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <%= ff.text_field :level_study, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_level_study") %>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("address") %>
-            </div>
-            <div class="col-sm-9">
-              <%= ff.text_field :address, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_addr") %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("subject") %>
-            </div>
-            <div class="col-sm-9">
-              <%= ff.text_field :subject, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_suject_teach") %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("level_study") %>
-            </div>
-            <div class="col-sm-9">
-              <%= ff.text_field :level_study, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_level_study") %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="col-sm-3">
-              <%= ff.label t("introduce"), class: "introduce" %>
-            </div>
-            <div class="col-sm-9">
-              <%= ff.text_area :introduce, autofocus: true, autocomplete: "name", class: "form-control", placeholder: t("ex_intr") %>
-            </div>
-          </div>
-          <div class="field addr">
-            <div class="col-sm-3">
-              <%= ff.label t("addr_teach") %>
-            </div>
-            <div class="col-md-5">
+            <div class="col-sm-6">
               <%= ff.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province") %>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <%= ff.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
             </div>
-          </div>
-        <% end %>
-      </div>
-      <div class="actions" style="margin-top: 2rem; text-align: right;">
-        <%= f.submit t("change"), class: "btn btn-success" %>
-      </div>
-    <% end %>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <%= ff.text_area :introduce, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_intr") %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="actions" style="margin-top: 2rem; text-align: right;">
+          <%= f.submit t("change"), class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
