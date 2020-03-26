@@ -28,4 +28,15 @@ class User < ApplicationRecord
     teacher.present?
   end
 
+  def self.to_csv
+    attributes = %w{name email birth phone}
+    header = attributes.map { |attr| I18n.t("#{attr}") }
+    CSV.generate do |csv|
+      csv << header
+      all.each do |user|
+        csv << attributes.map{ |attr| user.public_send(attr) }
+      end
+    end
+  end
+
 end

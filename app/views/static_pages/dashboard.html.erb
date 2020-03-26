@@ -6,7 +6,7 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#"><%= t "home" %></a></li>
+          <li class="breadcrumb-item"><%= link_to t("home"), admin_dashboard_path %></li>
         </ol>
       </div>
     </div>
@@ -25,7 +25,9 @@
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer"><%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i></a>
+          <%= link_to admin_users_path, class: "small-box-footer" do %>
+            <%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->
@@ -39,7 +41,9 @@
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer"><%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i></a>
+          <%= link_to admin_teach_offers_path, class: "small-box-footer" do %>
+            <%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->
@@ -53,7 +57,9 @@
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer"><%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i></a>
+          <%= link_to admin_demands_path, class: "small-box-footer" do %>
+            <%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->
@@ -68,7 +74,9 @@
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer"><%= t "more_info" %><i class="fa fa-arrow-circle-right"></i></a>
+          <%= link_to admin_charts_path, class: "small-box-footer" do %>
+            <%= t "more_info" %> <i class="fa fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->

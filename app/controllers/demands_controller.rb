@@ -3,7 +3,8 @@ class DemandsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
-    @demands = Demand.includes(:province, :district)
+    @search = Demand.ransack(params[:q])
+    @demands = @search.result.demand_approved.page(params[:page]).per Settings.page_demand
   end
 
   def create
@@ -18,7 +19,7 @@ class DemandsController < ApplicationController
   end
 
   def new
-    @demand = Demand.new
+    @demand = Demand.includes(:province, :district).new
   end
 
   def edit
