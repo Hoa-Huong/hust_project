@@ -13,7 +13,7 @@
         <span class="span-normal"><%= demand.subject %></span>
         <span class="span-normal"><%= demand.province_name %></span>
         <span class="span-normal"><%= demand.district_name %></span>
-        <span class="field_cost"><%= demand.fee %><%= t "vnd" %>/<%= t "month" %></span>
+        <span class="field_cost"><%= number_to_currency(demand.fee) %>/<%= t "month" %></span>
       </div>
     </div>
   </div>

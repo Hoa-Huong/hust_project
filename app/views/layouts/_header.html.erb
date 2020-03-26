@@ -7,24 +7,22 @@
             <span class="logo-bg"><%= t "logo" %></span>
           <% end %>
         </div>
-        <form action="/" method="post" id="blacasa-search-object-form" accept-charset="UTF-8">
+        <%= search_form_for @search, url: search_demands_path, html: { method: :post }, id: "blacasa-search-object-form" do |f| %>
           <div>
             <div class="navbar-left hidden-xs">
               <div class="navbar-form">
                 <div class="search-header">
                   <div class="form-item form-type-textfield form-item-key">
-                    <input placeholder="Tìm gia sư theo môn học và địa điểm" class="form-control form-text" type="text" id="edit-key" name="key" value="" size="60" maxlength="128">
+                    <%= f.search_field :subject_or_level_class_cont_any, placeholder: "Tìm nhu cầu theo môn học và trình độ", class: "form-control form-text", id: "edit-key"%>
                   </div>
                   <%= link_to "#" do %>
                     <i class="fa fa-search"></i>
                   <% end %>
-                  <input type="hidden" name="form_build_id" value="form-2k5duQrbMQziAzHWKV8o0lixX-dMqGtkOGv4vdPvF2c">
-                  <input type="hidden" name="form_id" value="blacasa_search_object_form">
                 </div>
               </div>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1">
@@ -48,9 +46,17 @@
                     <i class="fa fa-book"></i>
                     <span><%= t "my_demand" %></span>
                   <% end %>
-                  <%= link_to teach_offers_path do %>
-                    <i class="fa fa-book"></i>
-                    <span><%= t "my_teach_offer" %></span>
+                  <% if can? :read, TeachOffer %>
+                    <%= link_to teach_offers_path do %>
+                      <i class="fa fa-book"></i>
+                      <span><%= t "my_teach_offer" %></span>
+                    <% end %>
+                  <% end %>
+                  <% if current_user.admin? %>
+                    <%= link_to admin_dashboard_path do %>
+                      <i class="fa fa-tasks"></i>
+                      <span><%= t "manage_system" %></span>
+                    <% end %>
                   <% end %>
                   <%= link_to admin_dashboard_path do %>
                     <i class="fa fa-tasks"></i>

@@ -56,12 +56,11 @@
           <span class="secondtLine"><%= t "class_studied" %></span>
         </div>
         <div class="blockCount">
-          <span class="firstLine"><%= avg_rate @teacher %><%= image_tag("star-on.png",class: "star-on") %></span>
+          <span class="firstLine">
+            <%= avg_rate @teacher %> <span><%= t "point" %></span> / <%= amount_rate @teacher%> <span> <%= t "rate" %></span>
+          </span>
           <span class="secondtLine"><%= t "rate" %></span>
         </div>
-      </div>
-      <div class="wrapBlockInvite">
-        <%= link_to t("invite_teach"), "#", class: "btnInvite btn btn-md " %>
       </div>
     </div>
   </div>

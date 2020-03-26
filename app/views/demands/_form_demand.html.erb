@@ -12,14 +12,14 @@
         <div class="class-field-4 class-field">
           <p class="p-create-class-title required"><%= t "subject" %></p>
           <p class='error'><%= show_errors(@demand, :subject) %></p>
-          <%= f.text_field :subject, value: "" %>
+          <%= f.text_field :subject, value: "", class: "form-control" %>
         </div>
       </div>
       <div class="col-md-6">
         <div class="class-field-6 class-field">
           <p class="p-create-class-title required"><%= t "class" %></p>
           <p class='error'><%= show_errors(@demand, :level_class) %></p>
-          <%= f.text_field :level_class, min: 1, value: 1 %>
+          <%= f.text_field :level_class, min: 1, value: 1, class: "form-control" %>
         </div>
       </div>
     </div>
@@ -30,17 +30,28 @@
         <div class="class-field-6 class-field">
           <p class="p-create-class-title required"><%= t "fee" %></p>
           <p class='error'><%= show_errors(@demand, :fee) %></p>
-          <%= f.text_field :fee, class: "numberOnly", autocomplete: "on", maxlength: "13", placeholder: "Ví dụ:250,000", value: "" %>
+          <%= f.text_field :fee, class: "numberOnly", autocomplete: "on", maxlength: "13", placeholder: "Ví dụ:250,000", value: "", class: "form-control" %>
         </div>
       </div>
       <div class="col-md-6">
         <div class="class-field-6 class-field class-time">
-          <p class="p-create-class-title required"><%= t "time_per_session" %></p>
-          <p class='error'><%= show_errors(@demand, :time_per_session) %></p>
-          <%= f.radio_button :time_per_session, 0.5 %><%= Settings.half_hour %>
-          <%= f.radio_button :time_per_session, 1 %><%= Settings.hour %>
-          <%= f.radio_button :time_per_session, 1.5 %><%= Settings.one_hafl_hour %>
-          <%= f.radio_button :time_per_session, 2 %><%= Settings.two_hour %>
+        <p class="p-create-class-title required"><%= t "time_per_session" %></p>
+          <div class="form-check">
+            <%= f.radio_button :time_per_session, 0.5, class: "form-check-input" %>
+            <%= f.label Settings.half_hour, class: "form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :time_per_session, 1, class: "form-check-input" %>
+            <%= f.label Settings.hour, class: "form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :time_per_session, 1.5, class: "form-check-input" %>
+            <%= f.label Settings.one_hafl_hour, class: "form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :time_per_session, 2, class: "form-check-input" %>
+            <%= f.label Settings.two_hour, class: "form-check-label"%>
+          </div>
         </div>
       </div>
     </div>
@@ -51,7 +62,7 @@
         <div class="class-field-6 class-field">
           <p class="p-create-class-title required"><%= t "number_student" %></p>
           <p class='error'><%= show_errors(@demand, :number_student) %></p>
-          <%= f.number_field :number_student, min: 1, value: 1 %>
+          <%= f.number_field :number_student, min: 1, value: 1, class: "form-control" %>
         </div>
       </div>
       <div class="col-md-6">
@@ -65,16 +76,16 @@
     <div class="row">
       <div class="col-md-6">
         <p class='error'><%= show_errors(@demand, :province_id) %></p>
-        <%= f.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province") %>
+        <%= f.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province"), class: "form-control" %>
       </div>
       <div class="col-md-6">
         <p class='error'><%= show_errors(@demand, :district_id) %></p>
-        <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
+        <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district"), class: "form-control" %>
       </div>
     </div>
     <div class="class-field-6 class-field">
       <p class='error'><%= show_errors(@demand, :number_student) %></p>
-      <%= f.text_field :address_detail, placeholder: t("ex_addr") %>
+      <%= f.text_field :address_detail, placeholder: t("ex_addr"), class: "form-control" %>
     </div>
   </div>
   <div class="group-row">
@@ -83,7 +94,7 @@
         <div class="class-field-12 class-field">
           <p class="p-create-class-title required"><i class="fa fa-quote-right" aria-hidden="true"></i><%= t "note" %> </p>
           <p class='error'><%= show_errors(@demand, :note) %></p>
-          <%= f.text_area :note, placeholder: t("note")  %>
+          <%= f.text_area :note, placeholder: t("note"), class: "form-control"  %>
         </div>
       </div>
     </div>

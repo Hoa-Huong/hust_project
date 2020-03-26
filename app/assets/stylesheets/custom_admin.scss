@@ -68,3 +68,93 @@ p.error {
 .field_with_errors input{
   border: 1px solid $red !important;
 }
+
+.card-body {
+  line-height: 35px;
+}
+
+span.text-muted {
+  margin-left: 1rem;
+
+}
+span.text-muted.name:hover {
+  text-decoration: underline;
+}
+
+strong.level_class {
+  margin-left: 14rem;
+}
+
+p.status_approved, p.status_found {
+  color: $green;
+  display: inline;
+}
+
+p.status_unapproved {
+  color: $red;
+  display: inline;
+}
+
+span.float-right.title {
+  margin-top: -7px;
+}
+
+p.status_notFound {
+  color: $vivid_orange;
+  display: inline;
+}
+
+.modal-header {
+  position: relative;
+  h4#myModalLabel {
+    position: absolute;
+  }
+}
+
+table.table.table-hover {
+  background-color: $white;
+  line-height: 14px;
+  tbody tr::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+    margin-left: 22px;
+    margin-top: 13px;
+    position: absolute;
+  }
+}
+
+tr {
+  cursor: pointer;
+  border-bottom: solid 2px $very_light_gray;
+  position: relative;
+}
+
+body {
+  counter-reset: my-sec-counter;
+}
+
+.row.comment-teacher {
+  margin-top: 1rem;
+  select#comment_teacher_id {
+    width: 100%;
+    height: 28px;
+    color: black;
+    background: $light_grayish_red;
+  }
+}
+
+a.btn.btn-success.export {
+    float: right;
+    margin-right: 20px;
+    margin-top: 1rem;
+}
+
+div#chart-2, div#chart-1 {
+    padding: 11px;
+}
+
+p.chart {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}
