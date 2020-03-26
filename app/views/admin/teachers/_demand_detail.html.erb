@@ -1,0 +1,25 @@
+<tr>
+  <td><%= demand.title %></td>
+  <td><%= demand.created_at.strftime("%H:%M %F") %></td>
+  <td>
+    <% if demand.pending? %>
+      <strong><p class="status_<%= demand.status %>"><%= t "pending" %></p></strong>
+    <% elsif demand.approved? %>
+      <strong><p class="status_<%= demand.status %>"><%= t "approved" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= demand.status %>"><%= t "unapproved" %></p></strong>
+    <% end %>
+  </td>
+  <td>
+    <% if demand.notFound? %>
+      <strong><p class="status_<%= demand.status_teach %>"><%= t "finding" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= demand.status_teach %>"><%= t "found" %></p></strong>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to detroy_demand_admin_teacher_path(demand_id: demand.id, teacher_id: @teacher.id), method: :delete, data: { confirm: t("confirm") }, class: "btn-delete" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

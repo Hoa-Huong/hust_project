@@ -1,0 +1,13 @@
+<tr data-link = "<%= admin_teach_offer_path teach_offer %>">
+  <td><%= teach_offer.demand_user_name %></td>
+  <td><%= teach_offer.created_at.strftime("%H:%M %F") %></td>
+  <td>
+    <% if teach_offer.pending? %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "pending" %></p></strong>
+    <% elsif teach_offer.approved? %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "approved" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= teach_offer.status %>"><%= t "unapproved" %></p></strong>
+    <% end %>
+  </td>
+</tr>

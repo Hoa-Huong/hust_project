@@ -3,14 +3,9 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><%= t "manage_user" %></h3>
-          <%= link_to new_admin_user_path, class: "btn btn-inline btn-outline-success btn-flat float-right" do %>
-            <i class="fa fa-plus-square"></i>
-            <%= t "create_user" %>
-          <% end %>
         </div>
         <div class="btn-export">
-          <%= link_to admin_users_path(format: 'xls'), class: "btn btn-success export" do %>
+          <%= link_to admin_demands_path(format: "xls"), class: "btn btn-success export" do %>
             <i class="fas fa-download"></i>
             <%= t "export" %>
           <% end %>
@@ -20,14 +15,16 @@
             <thead>
               <tr>
                 <th></th>
-                <th><%= t "name" %></th>
-                <th><%= t "email" %></th>
+                <th style="width: 139.924px;"><%= t "name" %></th>
                 <th><%= t "phone" %></th>
+                <th><%= t "title" %></th>
+                <th><%= t "status" %></th>
+                <th style="width: 99.5686px;"><%= t "status_teach" %></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <%= render @users %>
+              <%= render @demands %>
             </tbody>
           </table>
         </div>

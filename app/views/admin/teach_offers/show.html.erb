@@ -1,0 +1,151 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><%= t "profile" %></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#"><%= t "home" %></a></li>
+          <li class="breadcrumb-item active"><%= t "teach_offer" %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Profile Image -->
+        <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title"><b> <%= t "demander" %></b></h3>
+          </div>
+          <div class="card-body box-profile">
+            <%= link_to admin_user_path(@demand.user) do %>
+              <div class="text-center">
+                <%= image_tag(@demand.user_avatar, class: "profile-user-img img-fluid img-circle") %>
+              </div>
+              <h3 class="profile-username text-center"><b><%= @demand.user_name %></b></h3>
+            <% end %>
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b><%= t "email" %></b> <a class="float-right"><%= @demand.user_email %></a>
+              </li>
+              <li class="list-group-item">
+                <b><%= t "phone" %></b> <a class="float-right"><%= @demand.user_phone %></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <!-- Profile Image -->
+        <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title"><b> <%= t "teacher" %></b></h3>
+          </div>
+          <div class="card-body box-profile">
+            <%= link_to admin_teacher_path(@teacher) do %>
+              <div class="text-center">
+                <%= image_tag(@teacher.user_avatar, class: "profile-user-img img-fluid img-circle") %>
+              </div>
+              <h3 class="profile-username text-center"><b><%= @teacher.user_name %></b></h3>
+            <% end %>
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b><%= t "email" %></b> <a class="float-right"><%= @teacher.user_email %></a>
+              </li>
+              <li class="list-group-item">
+                <b><%= t "phone" %></b> <a class="float-right"><%= @teacher.user_phone %></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title"><%= t "demand_detail" %>: <%= @demand.title %></h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <strong>
+              <i class="fas fa-book mr-1"></i><%= t "subject" %>:
+            </strong>
+            <span class="text-muted"><%= @demand.subject %> </span>
+
+            <strong class="level_class">
+              <i class="fas fa-book mr-1"></i><%= t "level_class" %>:
+            </strong>
+            <span class="text-muted"><%= @demand.level_class %> </span>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <strong>
+                  <i class="fas fa-book mr-1"></i><%= t "number_student" %>:
+                </strong>
+                <span class="text-muted"><%= @demand.number_student %> </span>
+              </div>
+              <div class="col-sm-4">
+                <strong>
+                  <i class="fas fa-book mr-1"></i><%= t "time_per_session" %>:
+                </strong>
+                <span class="text-muted"><%= @demand.time_per_session %> </span>
+              </div>
+              <div class="col-sm-5">
+                <strong>
+                  <i class="fas fa-book mr-1"></i><%= t "fee" %>:
+                </strong>
+                <span class="text-muted"><%= number_to_currency(@demand.fee) %></span>
+              </div>
+            </div>
+            <hr>
+
+            <strong><i class="fas fa-map-marker-alt mr-1"></i> <%= t "address" %></strong>
+
+            <span class="text-muted"><%= @demand.address_detail %> <%= @demand.district_name %> <%= @demand.province_name %></span>
+            <hr>
+
+            <strong><i class="far fa-file-alt mr-1"></i> <%= t "note" %></strong>
+
+            <p class="text-muted"><%= @demand.note %></p>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <strong><i class="fas fa-toggle-on"></i></i> <%= t "status" %></strong>
+                <span class="text-muted">
+                  <% if @demand.pending? %>
+                    <p class="status_<%= @demand.status %>"><%= t "pending" %></p>
+                  <% elsif @demand.approved? %>
+                    <p class="status_<%= @demand.status %>"><%= t "approved" %></p>
+                  <% else %>
+                    <p class="status_<%= @demand.status %>"><%= t "unapproved" %></p>
+                  <% end %>
+                </span>
+              </div>
+              <div class="col-sm-6">
+                <strong><i class="fas fa-toggle-on"></i></i> <%= t "status_teach" %></strong>
+                <span class="text-muted">
+                  <% if @demand.notFound? %>
+                    <p class="status_<%= @demand.status_teach %>"><%= t "notFound" %></p>
+                  <% else %>
+                    <p class="status_<%= @demand.status_teach %>"><%= t "found" %></p>
+                  <% end %>
+                </span>
+              </div>
+            </div>
+
+            <hr>
+            <%= render "btn_edit_status_teach_offer" %>
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,8 +15,8 @@
                   <div class="form-item form-type-textfield form-item-key">
                     <%= f.search_field :subject_or_level_class_cont_any, placeholder: "Tìm nhu cầu theo môn học và trình độ", class: "form-control form-text", id: "edit-key"%>
                   </div>
-                  <%= link_to "#" do %>
-                    <i class="fa fa-search"></i>
+                  <%= button_tag(type: "submit", class: "search-demand") do %>
+                    <span><i class="fa fa-search"></i></span>
                   <% end %>
                 </div>
               </div>
@@ -57,10 +57,6 @@
                       <i class="fa fa-tasks"></i>
                       <span><%= t "manage_system" %></span>
                     <% end %>
-                  <% end %>
-                  <%= link_to admin_dashboard_path do %>
-                    <i class="fa fa-tasks"></i>
-                    <span><%= t "manage_system" %></span>
                   <% end %>
                   <%= link_to "#" do %>
                     <i class="fa fa-bell"></i>

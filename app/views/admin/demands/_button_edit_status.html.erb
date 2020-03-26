@@ -1,0 +1,23 @@
+<div class="button_edit text-center">
+  <% if @demand.pending? %>
+    <%= link_to admin_demand_path(@demand, status: Demand.statuses.key(1)), method: :patch, class: "btn btn-success btn-sm" do %>
+      <i class="fa fa-check"></i>
+      <%= t "approve" %>
+    <% end %>
+    <%= link_to admin_demand_path(@demand, status: Demand.statuses.key(2)), method: :patch, class: "btn btn-danger btn-sm" do %>
+      <i class="fa fa-times"></i>
+      <%= t "unanproved" %>
+    <% end %>
+  <% elsif @demand.approved? %>
+    <button class="btn btn-success btn-sm" disabled>
+      <i class="fa fa-check"></i>
+      <%= t "approved" %>
+    </button>
+  <% else %>
+    <button class="btn btn-danger btn-sm" disabled>
+      <i class="fa fa-check"></i>
+      <%= t "unapproved" %>
+    </button>
+  <% end %>
+
+</div>
