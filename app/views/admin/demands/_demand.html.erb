@@ -1,0 +1,32 @@
+<tr class="demand_<%= demand.id %>">
+  <td></td>
+  <td><%= demand.user_name %></td>
+  <td><%= demand.user_phone %></td>
+  <td><%= demand.title %></td>
+  <td>
+    <% if demand.pending? %>
+      <strong><p class="status_<%= demand.status %>"><%= t "pending" %></p></strong>
+    <% elsif demand.approved? %>
+      <strong><p class="status_<%= demand.status %>"><%= t "approved" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= demand.status %>"><%= t "unapproved" %></p></strong>
+    <% end %>
+  </td>
+  <td>
+    <% if demand.notFound? %>
+      <strong><p class="status_<%= demand.status_teach %>"><%= t "finding" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= demand.status_teach %>"><%= t "found" %></p></strong>
+    <% end %>
+  </td>
+  <td class="project-actions text-center">
+    <%= link_to admin_demand_path(demand), class: "btn btn-primary btn-sm" do %>
+      <i class="fa fa-folder"></i>
+      <%= t"view" %>
+    <% end %>
+    <%= link_to admin_demand_path(demand), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-trash"></i>
+      <%= t "del" %>
+    <% end %>
+  </td>
+</tr>

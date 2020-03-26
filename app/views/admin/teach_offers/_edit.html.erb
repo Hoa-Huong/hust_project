@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel"><%= t "edit_teacher_offer" %></h4>
+</div>
+<div class="modal-body text-center">
+    <%= link_to admin_teach_offer_path(@teach_offer, status: TeachOffer.statuses.key(1)), method: :patch, class: "btn btn-success btn-sm" do %>
+      <i class="fa fa-check"></i>
+      <%= t "approve" %>
+    <% end %>
+    <%= link_to admin_teach_offer_path(@teach_offer, status: TeachOffer.statuses.key(2)), method: :patch, class: "btn btn-danger btn-sm" do %>
+      <i class="fa fa-times"></i>
+      <%= t "unanproved" %>
+    <% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel"><%= t "create_comment" %></h4>
+</div>
+<%= form_for [:admin, current_user.comments.new ] do |f| %>
+  <div class="modal-body text-center">
+      <div class="row">
+        <div class="col-sm-3"><%= t "comment" %></div>
+        <div class="col-sm-9">
+          <%= f.text_area :content, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row comment-teacher">
+        <div class="col-sm-3"><%= t "teacher" %></div>
+        <div class="col-sm-9">
+          <%= f.select :teacher_id, teacher_options, prompt: t("teacher") %>
+        </div>
+      </div>
+
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t("comment"), class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>

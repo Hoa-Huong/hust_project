@@ -16,7 +16,7 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <!-- Profile Image -->
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="card">
           <div class="card-header p-2">
             <ul class="nav nav-pills">
@@ -50,7 +50,26 @@
           </div>
           <div class="card-body">
             <div class="tab-content">
-              <!-- demand -->
+              <% if @demands.present? %>
+                <table class="table table-hover display" id="example">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="index"><%= t "index" %></th>
+                      <th scope="col"><%= t "demand" %></th>
+                      <th scope="col"><%= t "time_offer" %></th>
+                      <th scope="col"><%= t "status" %></th>
+                      <th scope="col"><%= t "status_teach" %></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render partial: "demand_detail", collection: @demands, as: "demand" %>
+                  </tbody>
+                </table>
+
+              <% else %>
+                <p><%= t "not_present_demand" %></p>
+              <% end %>
             </div>
           </div>
         </div>
