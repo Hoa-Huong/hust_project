@@ -1,9 +1,23 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><%= t "profile" %></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><%= link_to t("home"), admin_dashboard_path %></li>
+          <li class="breadcrumb-item"><%= t("comment") %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="content">
   <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><%= t "manage_comment" %></h3>
           <%= link_to new_admin_comment_path,remote: true, data: {toggle: "modal"}, data: {target: "#modal-window"}, class: "btn btn-inline btn-outline-success btn-flat float-right" do %>
             <i class="fa fa-plus-square"></i>
             <%= t "create_comment" %>
@@ -17,7 +31,7 @@
                 <th><%= t "comment_user" %></th>
                 <th><%= t "teacher" %></th>
                 <th><%= t "content" %></th>
-                <th style="width: 36.0372px;"></th>
+                <th style="width: 37.0372px;"></th>
               </tr>
             </thead>
             <tbody>

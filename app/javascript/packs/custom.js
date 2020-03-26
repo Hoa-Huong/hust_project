@@ -43,9 +43,31 @@ $(document).on("turbolinks:load",function(){
     }
   })
 
+  const districts_search = $('#q_district_id_eq').html()
+  $(document).on('change', '#q_province_id_eq', function(){
+    const province = $('#q_province_id_eq :selected').text()
+    console.log(province)
+    const options = $(districts_search).filter('optgroup[label="' + province + '"]').html()
+
+    if (options){
+      $('#q_district_id_eq').html(options)
+      $('#q_district_id_eq').parent().show()
+    }
+    else {
+      $('#q_district_id_eq').empty()
+    }
+  })
+
   $(document).on('click', 'tr[data-link]', function(){
     window.location = $(this).data('link')
   })
+
+  if($('.role input:checked').val() == "teacher") {
+    $('.form-teacher').css("display", "block")
+  }
+  else {
+    $('.form-teacher').css("display", "none")
+  }
 
   $(document).on('change', '.role input', function(){
 
