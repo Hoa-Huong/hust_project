@@ -50,28 +50,6 @@ end
   user.save
 end
 
-25.times do |n|
-  name = Faker::Name.name
-  birth = Faker::Date.in_date_period(year: 1998)
-  email = "user#{n+26}@gmail.com"
-  phone = Faker::PhoneNumber.cell_phone
-  role = 2
-  password = "123456"
-  password_confirmation = "123456"
-  confirmed_at = Time.now
-  user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
-  avar = URI.encode Faker::Avatar.image
-  begin
-    ava_file = open(URI.parse(avar))
-    user.avatar.attach io: ava_file, filename: "image.png"
-    user.save
-  rescue OpenURI::HTTPError => e
-    user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
-    filename: "default-ava.jpeg"
-  end
-  user.save
-end
-
 20.times do |n|
   user_ids = User.ids
   user_id = user_ids.sample
