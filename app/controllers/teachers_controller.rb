@@ -24,22 +24,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  def new
-    @teacher = Teacher.new
-  end
-
-  def create
-    @teacher = Teacher.new teacher_params
-    @teacher.user_id = current_user.id
-    if @teacher.save
-      flash[:success] = t "be_teacher_success"
-      redirect_to demands_path
-    else
-      flash[:danger] = t "be_teacher_fail"
-      render :new
-    end
-  end
-
   def show
     @comments = @teacher.comments
     @comment = current_user.comments.new if user_signed_in?

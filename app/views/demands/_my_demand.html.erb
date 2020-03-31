@@ -12,7 +12,7 @@
       <div class="col-md-9 col-sm-8">
         <p class="create inline" style="padding-right: 20px;">
           <i class="fa fa-calendar"></i>
-          <%= demand.updated_at.strftime("%F %H:%M") %>
+          <%= demand.updated_at.strftime("%H:%M |   %d-%m-%Y") %>
         </p>
       </div>
       <div class="col-md-3 col-sm-4">
@@ -72,13 +72,6 @@
             <%= t "note_" %>: <br>
             <span class="class-tutor-fee"><%= demand.note %> </span>
           </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2 col-sm-push-10">
-          <div class="action-group text-right show-when-hover">
-            <%= link_to t("teach_offer"), "#", class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
-          </div>
         </div>
       </div>
     </div>

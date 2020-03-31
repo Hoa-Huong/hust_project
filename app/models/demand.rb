@@ -1,6 +1,6 @@
 class Demand < ApplicationRecord
   belongs_to :user
-  has_many :teach_offer, dependent: :destroy
+  has_many :teach_offers, dependent: :destroy
   belongs_to :province
   belongs_to :district
 
@@ -17,6 +17,7 @@ class Demand < ApplicationRecord
 
   default_scope {order created_at: :desc }
   scope :demand_approved, -> {where status: 1}
+  scope :good_demand, ->(user) { where(province_id: user.teacher.province_id, district_id: user.teacher.district_id) }
 
   def self.to_csv
     attributes = %w{user_name user_email user_phone title subject level_class number_student time_per_session fee address_detail district_name province_name}

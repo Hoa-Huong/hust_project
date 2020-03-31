@@ -20,10 +20,6 @@
 yarn-debug.log*
 .yarn-integrity
 
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
-
 /config/application.yml
 /config/database.yml
 /config/credentials.yml.enc
