@@ -6,42 +6,53 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-2">
-            <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
+            <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "diploma_prev") %>
           </div>
           <div class="col-sm-3">
-            <%= f.file_field :diploma, class: "upload-img" %>
+            <p class='error'><%= show_errors(@teacher, :diploma) %></p>
+            <%= f.file_field :diploma, class: "upload-diploma" %>
           </div>
         </div>
       </div>
 
       <div class="col-sm-12">
         <div class="input-group">
+          <p class='error'><%= show_errors(@teacher, :graduate) %></p>
           <%= f.text_field :graduate, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_graduate") %>
         </div>
       </div>
       <div class="col-sm-12">
         <div class="input-group">
+          <p class='error'><%= show_errors(@teacher, :address) %></p>
           <%= f.text_field :address, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_addr") %>
         </div>
       </div>
       <div class="col-sm-12">
         <div class="input-group">
+          <p class='error'><%= show_errors(@teacher, :subject) %></p>
           <%= f.text_field :subject, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_suject_teach") %>
         </div>
       </div>
       <div class="col-sm-12">
         <div class="input-group">
+          <p class='error'><%= show_errors(@teacher, :level_study) %></p>
           <%= f.text_field :level_study, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_level_study") %>
         </div>
       </div>
+      <div class="col-sm-12">
+        <%= f.label t "address_teach" %>
+      </div>
       <div class="col-sm-6">
+        <p class='error'><%= show_errors(@teacher, :province_id) %></p>
         <%= f.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province") %>
       </div>
       <div class="col-md-6">
+        <p class='error'><%= show_errors(@teacher, :district_id) %></p>
         <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, prompt: t("district") %>
       </div>
       <div class="col-sm-12">
         <div class="input-group">
+          <p class='error'><%= show_errors(@teacher, :introduce) %></p>
           <%= f.text_area :introduce, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_intr") %>
         </div>
       </div>

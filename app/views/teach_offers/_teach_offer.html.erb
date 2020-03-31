@@ -1,6 +1,6 @@
 <tr data-link="<%= demand_path(teach_offer.demand) %>">
   <td><%= teach_offer.demand_title %></td>
-  <td><%= teach_offer.created_at.strftime("%H:%M %F") %></td>
+  <td><%= teach_offer.created_at.strftime("%H:%M |   %d-%m-%Y") %></td>
   <td>
     <% if teach_offer.pending? %>
       <%= t "pending" %>

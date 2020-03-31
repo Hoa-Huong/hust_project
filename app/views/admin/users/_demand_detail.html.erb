@@ -1,6 +1,6 @@
 <tr>
   <td><%= demand.title %></td>
-  <td><%= demand.created_at.strftime("%H:%M %F") %></td>
+  <td><%= demand.created_at.strftime("%H:%M |   %d-%m-%Y") %></td>
   <td>
     <% if demand.pending? %>
       <strong><p class="status_<%= demand.status %>"><%= t "pending" %></p></strong>

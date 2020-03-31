@@ -24,6 +24,19 @@ header {
   z-index: 2;
 }
 
+span#select2-user_teacher_attributes_province_id-container, span#select2-user_teacher_attributes_district_id-container {
+    width: 230px;
+}
+
+.control-comment i.fa.fa-trash {
+  margin-left: 15px;
+}
+
+.demand_index {
+  margin-right: 17rem;
+  margin-top: 3rem;
+}
+
 .flex-row-nowrap {
   display: flex;
   flex-direction: row;
@@ -67,7 +80,7 @@ button.search-demand {
   line-height: 31px;
 }
 
-li {
+nav#navbar-scroll li {
   list-style: none;
   margin-left: 2rem;
   float: left;
@@ -82,7 +95,8 @@ div#bs-example-navbar-collapse-1 {
 a.btn.btn-light.btn-header {
   padding: 8px;
   border: solid 1px $white;
-  color: white;
+  color: $white;
+  margin-right: 1rem;
 }
 
 span.logo-bg {
@@ -147,6 +161,7 @@ nav#navbar-scroll {
 
 .bg-gradient-blue {
   background: -webkit-linear-gradient(top, $very_pale_cyan, $white 50%, $white);
+  margin-bottom: 2rem;
 }
 
 .container.content {
@@ -237,7 +252,7 @@ img.avatar_menu {
 }
 
 .dropbtn.btn.btn-light {
-  padding: 7px 22px 7px 22px;
+  padding: 7px 40px 7px 22px;
 }
 
 li i.fa.fa-caret-down {
@@ -259,7 +274,7 @@ img.avatar_menu {
   width: 36px;
   height: 36px;
   border-radius: 5rem;
-  margin-right: -29px;
+  margin-right: -7px;
 }
 
 .dropbtn {
@@ -296,10 +311,6 @@ img.avatar_menu {
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.dropbtn.btn.btn-light {
-  padding: 7px 22px 7px 22px;
 }
 
 li i.fa.fa-caret-down {
@@ -345,6 +356,7 @@ img.rounded-circle {
 
 input#user_avatar {justify-content: end;margin-top: 10rem;}
 
+input#user_teacher_attributes_diploma {margin-top: 6rem;}
 .col-sm-6.more a {
   float: right;
   margin-top: 3rem;
@@ -548,6 +560,7 @@ textarea#demand_note, textarea#teacher_introduce {
   font-weight: bolder;
   background-color: $light_red;
   z-index: 1;
+  position: fixed;
 }
 
 .alert.alert-success, .alert.alert-notice {
@@ -558,6 +571,7 @@ textarea#demand_note, textarea#teacher_introduce {
   font-weight: bolder;
   background-color: $light_green;
   z-index: 1;
+  position: fixed;
 }
 
 .required:after {
@@ -672,6 +686,7 @@ p.error {
   font-weight: 400;
   min-width: 150px;
   border-radius: 2px;
+
 }
 
 .bla-common-shadow {
@@ -997,11 +1012,6 @@ input#user_diploma {
   display: none;
 }
 
-
-input#user_teacher_attributes_diploma {
-  margin-top: 95px;
-}
-
 input.btn.btn-success {
   color: $white;
   background-color: $vivid_orange;
@@ -1172,6 +1182,7 @@ span.direct-chat-timestamp.float-right {
 
 .comments {
   background-color: $white;
+  padding-bottom::10rem;
   .direct-chat-msg .direct-chat-text {
     width: 90%;
   }
@@ -1262,6 +1273,10 @@ input#teacher_diploma {
     }
     .col-sm-1 {
       padding-right: 0;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      width: 114%;
     }
   }
 }
