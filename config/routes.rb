@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :demands do
       collection do
         match 'search' => 'demands#search', via: [:get, :post], as: :search
+        match 'good_demand/search' => 'demands#search_good_demand', via: [:get, :post], as: :search_good_demand
      end
    end
     resources :teachers
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     end
     resources :teachers do
       resources :comments
+      get "/good_demand", to: "demands#good_demand"
     end
 
     get "admin/dashboard", to: "admin#dashboard"

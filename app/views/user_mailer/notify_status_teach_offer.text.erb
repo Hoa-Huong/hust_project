@@ -1,0 +1,11 @@
+<%= t "title_mail_status_teach_offer" %>
+<%= t "hello" %> <%= @teacher.user_name %> !!!!
+<%= t "content_notification_status_teach_offer" %>
+<% if @teach_offer.approved? %>
+  <%= t "approved" %>
+<% elsif @teach_offer.unapproved? %>
+  <%= t "unapproves" %>
+<% else %>
+  <%= t "pending" %>
+<% end %>
+<%= t "content_notice" %>

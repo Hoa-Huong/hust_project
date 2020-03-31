@@ -74,7 +74,11 @@
       <h3><%= t "intr_expirience" %></h3>
       <p><%= @teacher.introduce %></p>
       <h3><%= t "diploma" %></h3>
-      <%= image_tag(@teacher.diploma, class: "diploma") %>
+      <% if @teacher.diploma.present? %>
+        <%= image_tag(@teacher.diploma, class: "diploma") %>
+      <% else %>
+        <p><%= t "not_diploma" %></p>
+      <% end %>
     </div>
     <div class="header-block comment">
       <h2><%= t "comment" %></h2>

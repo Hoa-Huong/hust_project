@@ -12,3 +12,5 @@ num_round_rate: 1
 page_demand: 5
 role_teacher: 2
 status_teach_found: 1
+demand_role: "demand"
+teacher_role: "teacher"
