@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :demands, dependent: :restrict_with_exception
   has_many :comments, dependent: :destroy
   has_one :teacher, dependent: :destroy
+  has_many :teach_offers, through: :teacher
 
   has_one_attached :avatar
 

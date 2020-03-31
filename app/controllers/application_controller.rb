@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale, :authenticate_user!
-  before_action :search_global
+  before_action :set_locale
+  before_action :authenticate_user!, except: [:search_global, :search]
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: t("unauthorize")

@@ -9,7 +9,7 @@
       <div class="col-md-9 col-sm-8">
         <p class="create inline" style="padding-right: 20px;">
           <i class="fa fa-calendar"></i>
-          <%= @demand.updated_at.strftime("%F %H:%M") %>
+          <%= @demand.updated_at.strftime("%H:%M |   %d-%m-%Y") %>
         </p>
       </div>
       <div class="col-md-3 col-sm-4">
@@ -67,13 +67,19 @@
           <p>
             <i class="fa fa-sticky-note"></i>
             <%= t "note_" %>: <br>
-            <span class="class-tutor-fee"><%= @demand.note %> </span>
+            <span class="class-tutor-fee">
+                <%= @demand.note %>
+             </span>
           </p>
         </div>
       </div>
-      <div class="col-sm-3 col-sm-push-9">
+      <div class="col-sm-3 col-sm-push-8">
         <div class="action-group text-right show-when-hover">
-          <%= button_to t("teach_offer"), teach_offers_path(demand_id: @demand.id), class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed" %>
+          <% if current_user && check_offer_presence(@demand, current_user) %>
+            <%= button_to t("offered"), teach_offers_path(demand_id: @demand.id), class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed demand_#{@demand.id} disabled", remote: true %>
+          <% else %>
+            <%= button_to t("teach_offer"), teach_offers_path(demand_id: @demand.id), class: "btn-yellow btn ctools-use-modal ctools-use-modal-processed demand_#{@demand.id}", remote: true %>
+          <% end %>
         </div>
       </div>
       </div>

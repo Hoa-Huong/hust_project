@@ -6,7 +6,7 @@
           <div class="col-sm-1">
             <%= f.label t("search") %>:
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div class="search-header">
               <div class="form-item form-type-textfield form-item-key">
                 <%= f.collection_select :province_id_eq, Province.order(:name), :id, :name, prompt: t("province"), class: "form-control" %>
@@ -20,10 +20,17 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             <div class="search-header">
               <div class="form-item form-type-textfield form-item-key">
-                <%= f.search_field :subject_or_level_class_cont_any, placeholder: "Tìm nhu cầu theo môn học và trình độ", class: "form-control form-text" %>
+                <%= f.search_field :subject_cont_any, placeholder: "Tìm theo môn học", class: "form-control form-text" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="search-header">
+              <div class="form-item form-type-textfield form-item-key">
+                <%= f.search_field :level_class_cont_any, placeholder: "Tìm theo trình độ", class: "form-control form-text" %>
               </div>
             </div>
           </div>
@@ -34,7 +41,7 @@
       <% end %>
     </div>
     <div class="view-header">
-      <span><%= t "demand_good" %></span>
+      <span><%= t "new_demand" %></span>
     </div>
     <%= render @demands %>
     <%= paginate @demands %>

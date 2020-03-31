@@ -42,6 +42,11 @@ class DemandsController < ApplicationController
     @my_demands = current_user.demands.includes(:province, :district)
   end
 
+  def good_demand
+    @q = Demand.approved.good_demand(current_user).ransack(params[:q])
+    @demands = @q.result.page(params[:page]).per 5
+  end
+
   private
 
   def demand_params

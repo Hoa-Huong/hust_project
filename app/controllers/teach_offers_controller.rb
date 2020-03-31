@@ -9,14 +9,16 @@ class TeachOffersController < ApplicationController
 
   def create
     @teach_offer = current_user.teacher.teach_offers.find_by demand_id: @choosen_demand.id
-
     if @teach_offer
-      flash[:danger] = t "offer_before"
+      respond_to do |format|
+        format.js { flash.now[:danger] = t "offer_before" }
+      end
     else
       @teach_offer = current_user.teacher.teach_offers.create demand_id: @choosen_demand.id
-      flash[:success] = t "teach_offer_success"
+      respond_to do |format|
+        format.js { flash.now[:success] = t "teach_offer_success" }
+      end
     end
-    redirect_to demands_path
   end
 
   def destroy
@@ -40,7 +42,8 @@ class TeachOffersController < ApplicationController
   def check_teacher
     return if current_user.teacher?
     flash[:notice] = t "not_be_teacher"
-    redirect_to root_path
+    redirect_to new_teacher_path
+
   end
 
   def teach_offer

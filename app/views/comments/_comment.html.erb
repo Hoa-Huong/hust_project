@@ -9,10 +9,20 @@
     </div>
     <% if current_user && comment.user_id == current_user.id %>
       <div class="control-comment">
-        <span><%= link_to t("edit"), edit_teacher_comment_path(@teacher, comment), remote: true %></span>
-        <span><%= link_to t("del"), teacher_comment_path(@teacher, comment), method: :delete, remote: true, data: { confirm: t("confirm") } %></span>
+        <span>
+          <%= link_to edit_teacher_comment_path(@teacher, comment), remote: true do %>
+            <i class="fa fa-pencil"></i>
+            <%= t("edit") %>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to teacher_comment_path(@teacher, comment), method: :delete, remote: true, data: { confirm: t("confirm") } do %>
+            <i class="fa fa-trash"></i>
+            <%= t("del") %>
+          <% end %>
+        </span>
       </div>
     <% end %>
-    <span class="direct-chat-timestamp float-right"><%= comment.created_at.strftime("%F %H:%M") %></span>
+    <span class="direct-chat-timestamp float-right"><%= comment.created_at.strftime("%H:%M |   %d-%m-%Y") %></span>
   </div>
 </div>

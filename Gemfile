@@ -27,6 +27,7 @@ gem "cancancan"
 gem "groupdate"
 gem "chartkick"
 gem "ransack", github: "activerecord-hackery/ransack"
+gem "select2-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

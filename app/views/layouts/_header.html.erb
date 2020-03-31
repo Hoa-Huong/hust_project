@@ -114,12 +114,21 @@
               <span><%= t "new_demand" %></span>
             <% end %>
           </li>
-          <li>
-            <%= link_to new_teacher_path do %>
-              <i class="fa fa-book" aria-hidden="true"></i>
-              <span><%= t "be_teacher" %></span>
-            <% end %>
-          </li>
+          <% if current_user.nil? || current_user.teacher.nil? %>
+            <li>
+              <%= link_to new_teacher_path do %>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span><%= t "be_teacher" %></span>
+              <% end %>
+            </li>
+          <% elsif current_user %>
+            <li>
+              <%= link_to teacher_good_demand_path(current_user) do %>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span><%= t "accordant_demand" %></span>
+              <% end %>
+            </li>
+          <% end %>
           <li class="hidden-max413">
             <%= link_to teachers_path do %>
               <i class="fa fa-user" aria-hidden="true"></i>
