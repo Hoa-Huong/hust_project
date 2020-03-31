@@ -11,6 +11,7 @@ require("jquery")
 require("packs/custom")
 require("packs/jquery.raty")
 require("packs/ratyrate.js.erb")
+require("select2")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

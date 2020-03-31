@@ -10,4 +10,6 @@ require("packs/custom")
 require("packs/custom_admin")
 require("datatables.net")
 require("datatables.net-bs4")
-require("datatables.net-bs4/css/dataTables.bootstrap4.css");
+require("datatables.net-bs4/css/dataTables.bootstrap4.css")
+require("chartkick")
+require("chart.js")

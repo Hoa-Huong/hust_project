@@ -6,7 +6,7 @@
   <td><%= teacher.teach_offers.size %></td>
   <td class="project-actions text-center">
     <%= link_to admin_teacher_path(teacher), class: "btn btn-primary btn-sm" do %>
-      <i class="fas fa-folder"></i>
+      <i class="fas fa-search"></i>
       <%= t"view" %>
     <% end %>
     <%= link_to admin_teacher_path(teacher), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: t("confirm")} do %>
