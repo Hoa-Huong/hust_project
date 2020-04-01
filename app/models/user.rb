@@ -2,7 +2,7 @@ class User < ApplicationRecord
   ratyrate_rater
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-    :trackable, :confirmable
+  :trackable, :confirmable, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :demands, dependent: :restrict_with_exception
   has_many :comments, dependent: :destroy
@@ -40,4 +40,27 @@ class User < ApplicationRecord
     end
   end
 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.birth = auth.info.birth
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      user.fb_ava = auth.info.image
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if session["devise.facebook_data"]
+          udata = session["devise.facebook_data"]["extra"]["raw_info"]
+          fb_info = session["devise.facebook_data"]
+          user.name = udata["name"] if user.name.blank?
+          user.email = udata["email"] if user.email.blank?
+          user.fb_ava = fb_info["info"]["image"]
+          user.uid = fb_info["uid"] if user.uid.blank?
+          user.provider = fb_info["provider"] if user.provider.blank?
+        end
+    end
+  end
 end

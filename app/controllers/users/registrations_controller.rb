@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -44,8 +43,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def attach_avatar
     unless resource.avatar.attached?
-      resource.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
-      filename: "default-ava.jpeg"
+      if resource.fb_ava.present?
+        resource.avatar.attach io: open(resource.fb_ava), filename: "fb-ava.jpg"
+      else
+        resource.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")), filename: "default-ava.jpeg"
+      end
     end
   end
 

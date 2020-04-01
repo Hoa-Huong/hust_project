@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   scope "(:locale)", locale: /en|vi/ do
     root to: "static_pages#home"
-    devise_for :users, controllers: { registrations: "users/registrations" }
+    devise_for :users, controllers: { registrations: "users/registrations" }, skip: :omniauth_callbacks
     resources :demands do
       collection do
         match 'search' => 'demands#search', via: [:get, :post], as: :search
