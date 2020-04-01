@@ -12,10 +12,12 @@
     <div class="row role ">
       <div class="col-sm-4">Bạn là:</div>
       <div class="col-sm-4">
-        <%= f.radio_button :role, "demand", checked: true %>Học viên
+        <%= f.radio_button :role, Settings.demand_role, checked: true, class: "form-check-input" %>
+        <%= f.label t("student"), class: "form-check-label"%>
       </div>
       <div class="col-sm-4">
-        <%= f.radio_button :role, "teacher" %>Gia sư
+        <%= f.radio_button :role, Settings.teacher_role, class: "form-check-input" %>
+        <%= f.label t("teacher"), class: "form-check-label"%>
       </div>
     </div>
     <div class="row">
@@ -61,10 +63,10 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-2">
-              <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "img_prev") %>
+              <%= image_tag("certificates-default.jpg", size: "50x50", class: "rounded-circle", id: "diploma_prev") %>
             </div>
             <div class="col-sm-3">
-              <%= ff.file_field :diploma, class: "upload-img" %>
+              <%= ff.file_field :diploma, class: "upload-diploma" %>
             </div>
           </div>
         </div>
@@ -88,6 +90,9 @@
           <div class="input-group">
             <%= ff.text_field :level_study, autofocus: true, autocomplete: "name", class: "input--style-2", placeholder: t("ex_level_study") %>
           </div>
+        </div>
+        <div class="col-sm-12">
+          <%= f.label t "address_teach" %>
         </div>
         <div class="col-sm-6">
           <%= ff.collection_select :province_id, Province.order(:name), :id, :name, prompt: t("province") %>

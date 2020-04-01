@@ -15,8 +15,14 @@ class Admin::TeachOffersController < AdminController
   end
 
   def update
+    @user = @teach_offer.user
+    @teacher = @teach_offer.teacher
     if @teach_offer.update(status: params[:status])
-      @teach_offer.demand.update status_teach: Settings.status_teach_found if params[:status] == "approved"
+      if params[:status] == "approved"
+        @teach_offer.demand.update status_teach: Settings.status_teach_found
+        UserMailer.notify_status_teach_demand(@user).deliver_now
+      end
+        UserMailer.notify_status_teach_offer(@teacher, @teach_offer).deliver_now
     else
       flash[:danger] = t "update_teach_offer_fail"
     end

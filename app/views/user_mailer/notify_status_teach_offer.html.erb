@@ -1,0 +1,17 @@
+<h1><%= t "title_mail_status_teach_offer" %></h1>
+<p>
+  <%= t "hello" %> <%= @teacher.user_name %> !!!!
+</p><br>
+<p>
+  <%= t "content_notification_status_teach_offer" %>
+  <h3>
+    <% if @teach_offer.approved? %>
+      <%= t "approved" %>
+    <% elsif @teach_offer.unapproved? %>
+      <%= t "unapproves" %>
+    <% else %>
+      <%= t "pending" %>
+    <% end %>
+  </h3>
+  <%= t "content_notice" %>
+</p>

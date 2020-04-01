@@ -13,12 +13,14 @@ class Admin::DemandsController < AdminController
   end
 
   def update
+    @user = @demand.user
     if @demand.update status: params[:status]
       flash[:success] = t "update_demand_success"
     else
       flash[:danger] = t "update_demand_fail"
     end
     redirect_to admin_demand_path @demand
+    UserMailer.notify_status_demand(@user, @demand).deliver_now
   end
 
   def destroy

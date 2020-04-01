@@ -17,7 +17,7 @@ class TeachersController < ApplicationController
     if @teacher.save
       @teacher.user.update role: Settings.role_teacher
       flash[:success] = t "be_teacher_success"
-      redirect_to demands_path
+      redirect_to teacher_good_demand_path teacher_id: @teacher.id
     else
       flash[:danger] = t "be_teacher_fail"
       render :new

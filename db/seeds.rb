@@ -17,15 +17,14 @@ User.delete_all
   confirmed_at = Time.now
   user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
   avar = URI.encode Faker::Avatar.image
-
   begin
     ava_file = open(URI.parse(avar))
     user.avatar.attach io: ava_file, filename: "image.png"
-    user.save
   rescue OpenURI::HTTPError => e
     user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
   end
+    user.save
 
 end
 
@@ -61,8 +60,15 @@ end
   password_confirmation = "123456"
   confirmed_at = Time.now
   user = User.create!(name: name, birth: birth, email: email, phone: phone, role: role, password: password, password_confirmation: password_confirmation, confirmed_at: confirmed_at)
-  user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
+  avar = URI.encode Faker::Avatar.image
+  begin
+    ava_file = open(URI.parse(avar))
+    user.avatar.attach io: ava_file, filename: "image.png"
+    user.save
+  rescue OpenURI::HTTPError => e
+    user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
+  end
   user.save
 end
 
@@ -112,7 +118,7 @@ end
   teacher_id = teacher_ids.sample
   user_ids = User.ids
   user_id = user_ids.sample
-  content = Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+  content = Faker::Lorem.paragraph(sentence_count: 5, supplemental: false, random_sentences_to_add: 5)
   Comment.create(teacher_id: teacher_id, user_id: user_id, content: content)
 end
 
