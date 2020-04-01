@@ -14,3 +14,4 @@ role_teacher: 2
 status_teach_found: 1
 demand_role: "demand"
 teacher_role: "teacher"
+callback_fb: "http://localhost:3000/users/auth/facebook/callback/"

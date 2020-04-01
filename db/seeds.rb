@@ -24,8 +24,7 @@ User.delete_all
     user.avatar.attach io: File.open(Rails.root.join("app", "assets", "images", "default-ava.jpeg")),
     filename: "default-ava.jpeg"
   end
-    user.save
-
+  user.save
 end
 
 25.times do |n|
