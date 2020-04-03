@@ -13,7 +13,7 @@ module StaticPageHelper
 
   def revenue
     result = 0
-    Demand.approved.map do |demand|
+    Demand.found.map do |demand|
       result += demand.fee
     end
     result

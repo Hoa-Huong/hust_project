@@ -25,7 +25,7 @@ header {
 }
 
 span#select2-user_teacher_attributes_province_id-container, span#select2-user_teacher_attributes_district_id-container {
-    width: 230px;
+  width: 230px;
 }
 
 .control-comment i.fa.fa-trash {
@@ -1289,4 +1289,116 @@ input#edit-key {
   width: 36rem;
   margin-top: -2px;
   margin-left: -3px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header .close {
+  margin-top: -28px;
+}
+
+.modal-header {
+  padding: 0;
+}
+
+.demand-invite-title {
+  margin-top: -10px;
+}
+
+form.button_to {
+  display: inline;
+}
+
+input.btn.btn-info.pick {
+  margin-top: -3px;
+}
+
+span.check {
+  margin-top: 4rem;
+  margin-left: 17px;
+}
+
+.demand-invite {
+  box-shadow: 0 2px 2px 0 rgba(0, 83, 0, 0.14), 0 2px 0px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 12px 0 65px;
+}
+
+.demand-invite-btn {
+  position: relative;
+}
+
+input.invite {
+  position: absolute;
+  bottom: -55px;
+  right: 7px;
+  background: $vivid_orange;
+  border: none;
+  &:hover{
+    background: $vivid_orange;
+  }
+}
+
+input.btn.btn-info.btn-sm.cancle {
+  background: green;
+}
+
+input.btn.btn-success.btnSendInvite {
+  font-weight: 100;
+  font-size: 15px;
+}
+
+p.agree {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: -10px;
+  color: $agree;
+  i {
+    font-size: 20px;
+  }
+}
+
+p.disagree {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: -10px;
+  color: $disagree ;
+  i {
+    font-size: 20px;
+  }
 }

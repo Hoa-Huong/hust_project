@@ -62,6 +62,9 @@
           <span class="secondtLine"><%= t "rate" %></span>
         </div>
       </div>
+      <div class="wrapBlockInvite">
+        <%= button_to t("invite_teach"), invites_path(teacher_id: @teacher.id), class: "ctools-use-modal btnInvite btn btn-md ctools-use-modal-processed", remote: true %>
+      </div>
     </div>
   </div>
 </div>
@@ -89,5 +92,12 @@
     <div class="comments">
       <%= render partial: "comments/comment", collection: @comments, as: "comment" %>
     </div>
+  </div>
+</div>
+<div id="myModal" class="modal">
+    <div class="flash notice-modal">
+      <%= render "layouts/flash" %>
+    </div>
+  <div class="modal-content">
   </div>
 </div>

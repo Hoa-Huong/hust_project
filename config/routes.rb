@@ -9,8 +9,13 @@ Rails.application.routes.draw do
         match 'good_demand/search' => 'demands#search_good_demand', via: [:get, :post], as: :search_good_demand
      end
    end
-    resources :teachers
     resources :teach_offers
+    resources :invites
+    resources :invite_items do
+      member do
+        patch :update_status, to: "invite_items#update_status"
+      end
+    end
 
     resources :users do
       get "/my_demands", to: "demands#my_demands"

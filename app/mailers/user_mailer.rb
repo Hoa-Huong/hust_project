@@ -15,4 +15,15 @@ class UserMailer < ApplicationMailer
     @teach_offer = teach_offer
     mail to: teacher.user_email, subject: t("title_mail_status_teach_offer")
   end
+
+  def send_invitation_to_teacher teacher, invite
+    @teacher = teacher
+    @invite = invite
+    mail to: teacher.user_email, subject: t("title_send_invitation")
+  end
+
+  def send_notification_invitation_to_demander invite_item
+    @invite_item = invite_item
+    mail to: @invite_item.demand.user_email, subject: t("title_send_notification_invitation_to_demander")
+  end
 end
