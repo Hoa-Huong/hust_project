@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         end
       end
       resources :demands
+      resources :invite_items, only: :index
       resources :teach_offers
       resources :comments, except: [:edit, :update, :show]
       resources :charts, only: :index

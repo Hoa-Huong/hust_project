@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load",function(){
   setTimeout(function(){
     $('.alert', '.flash', '.flash.notice-modal').fadeOut('slow');
-  }, 8000)
+  }, 6000)
 
   const districts_demand = $('#demand_district_id').html()
   $(document).on('change', '#demand_province_id', function(){

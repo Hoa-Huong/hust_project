@@ -1,4 +1,6 @@
 class InviteItemsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :invite, :demand, only: :create
   before_action :invite_item, only: [:destroy, :update_status]
 

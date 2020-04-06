@@ -85,12 +85,12 @@ strong.level_class {
   margin-left: 14rem;
 }
 
-p.status_approved, p.status_found {
+p.status_approved, p.status_found, p.status_yes {
   color: $green;
   display: inline;
 }
 
-p.status_unapproved {
+p.status_unapproved, p.status_no {
   color: $red;
   display: inline;
 }
@@ -174,4 +174,11 @@ select#comment_teacher_id {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+a.invite_item {
+  color: $black;
+  &:hover{
+    text-decoration: underline;
+  }
 }
