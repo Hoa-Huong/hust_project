@@ -1,0 +1,2 @@
+$('input.invite.demand_<%= @demand.id %>').remove()
+$(".demand-<%= @demand.id %> .demand-invite-btn").html("<%= j (render 'create') %>");

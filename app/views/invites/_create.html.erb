@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h3 class="modal-title"><%= t "invite_teach" %></h3>
+</div>
+<div class="modal-body">
+  <h4><b><%= t "pick_demand" %></b></h4>
+  <% if @demands.present? %>
+    <% @demands.each do |demand| %>
+      <div class="demand-invite demand-<%= demand.id %>">
+        <div class="col-sm-9 demand-invite-title">
+          <div class="right-item col-md-10 col-xs-12">
+            <h4>
+              <span class="field-content">
+                <%= link_to demand.title, demand_path(demand) %>
+              </span>
+            </h4>
+            <p class="create inline" style="padding-right: 20px;">
+              <i class="fa fa-calendar"></i>
+              <%= demand.updated_at.strftime("%H:%M | %d-%m-%Y") %>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-3 demand-invite-btn " >
+          <%= button_to t("pick"), invite_items_path(demand_id: demand.id, invite_id: @invite.id), class: "btn btn-primary btn-sm invite demand_#{demand.id}", remote: true %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+  <% end %>
+</div>
+<div class="modal-footer">
+  <%= button_to t("invite_teach"), invite_path(@invite), class: "btn btn-success btnSendInvite", method: :patch, remote: true %>
+  <%= button_to t("cancle"), invite_path(@invite), class: "btn btn-danger", method: :delete %>
+</div>

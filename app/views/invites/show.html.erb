@@ -1,0 +1,95 @@
+<div class="invitation">
+  <% @invite_items.each do |invite_item| %>
+    <section class="header-study-group bg-gradient-blue">
+      <div class="container">
+        <div class="row">
+          <h1>
+            <div class="col-md-12 col-sm-12" style="padding:20px !important;font-size: 26px; margin-top: -13px;">
+              <%= invite_item.demand.title %>
+            </div>
+          </h1>
+          <div class="col-md-9 col-sm-8">
+            <p class="create inline" style="padding-right: 20px;">
+              <i class="fa fa-calendar"></i>
+              <%= invite_item.demand.updated_at.strftime("%H:%M |   %d-%m-%Y") %>
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-4">
+              <p class="name inline" style="padding-right: 20px;">
+                <i class="fa fa-user-o"></i>
+                <%= link_to "#" do %>
+                <%= invite_item.demand.user_name %>
+                <% end %>
+              </p>
+            </div>
+          <!--Kiểu lớp: Tìm GIA SƯ-->
+          <div class="row" style="margin: 105px 0;border-top: 1px solid #e7e7e7;padding: 10px; margin-bottom: 15px;">
+            <div class="col-md-4 col-sm-4">
+              <p class="no-padding">
+                <i class="fa fa-bookmark"></i><%= t "status" %>:
+                <span style="font-weight: bold; color: #ff961e; text-transform: uppercase;">
+                  <% if invite_item.demand.notFound? %>
+                    <%= t "finding" %>
+                  <% else %>
+                    <%= t "found" %>
+                  <% end %>
+                </span>
+              </p>
+              <p class="no-padding">
+                <i class="fa fa-book"></i>
+                <%= t "subject" %>:&nbsp;<%= invite_item.demand.subject %>
+              </p>
+              <p class="no-padding">
+                <i class="fa fa-book"></i>
+                <%= t "class" %> :&nbsp;<%= invite_item.demand.level_class %>
+              </p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <p>
+                <i class="fa fa-user-o"></i>
+                <%= t "number_student" %> : <%= invite_item.demand.number_student %>
+              </p>
+              <p>
+                <i class="fa fa-money"></i>
+                <%= t "fee" %>:
+                <span class="class-tutor-fee"><%= number_to_currency(invite_item.demand.fee) %></span>
+              </p>
+              <p>
+                <i class="fa fa-history"></i>
+                <%= t "time_per_session" %>:
+                <span class="class-tutor-fee"><%= invite_item.demand.time_per_session %> h/buổi</span>
+              </p>
+            </div>
+            <div class="col-md-5 col-sm-5">
+              <p>
+                <i class="fa fa-address-card"></i>
+                <%= t "detail_address" %>:
+                <span class="class-tutor-fee"><%= invite_item.demand.address_detail %> <%= invite_item.demand.district_name%> <%= invite_item.demand.province_name %> </span>
+              </p>
+              <p>
+                <i class="fa fa-sticky-note"></i>
+                <%= t "note_" %>: <br>
+                <span class="class-tutor-fee">
+                  <%= invite_item.demand.note %>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-sm-push-8">
+            <div class="action-group text-right show-when-hover">
+              <% if invite_item.pending? %>
+                <%= link_to t("agree"), update_status_invite_item_path(invite_item, status: InviteItem.statuses.key(1)), class: "btn btn-info", method: :patch %>
+                <%= link_to t("disagree"), update_status_invite_item_path(invite_item, status: InviteItem.statuses.key(2)), class: "btn btn-danger", method: :patch %>
+              <% elsif invite_item.yes? %>
+                <p class="agree"><i class="fa fa-thumbs-up"></i> <%= t "you_agree" %></p>
+              <% else %>
+                <p class="disagree"><i class="fa fa-thumbs-down"></i> <%= t "you_disagree" %></p>
+              <% end %>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</div>

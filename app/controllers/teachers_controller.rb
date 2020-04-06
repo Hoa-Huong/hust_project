@@ -25,7 +25,7 @@ class TeachersController < ApplicationController
   end
 
   def show
-    @comments = @teacher.comments
+    @comments = @teacher.comments.includes(:user).includes(user: [:avatar_attachment, :avatar_blob])
     @comment = current_user.comments.new if user_signed_in?
   end
 

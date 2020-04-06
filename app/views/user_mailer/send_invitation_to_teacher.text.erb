@@ -1,0 +1,66 @@
+<h1><%= t "title_send_invitation" %></h1>
+<p>
+  <%= t "hello" %> <%= @teacher.user_name %> !!!!
+</p><br>
+<% @invite.demands.each do |demand| %>
+  <h1>
+    <div>
+      <%= demand.title %>
+    </div>
+  </h1>
+  <div>
+    <p>
+      <%= t "time_post" %>: <%= demand.updated_at.strftime("%H:%M |   %d-%m-%Y") %>
+    </p>
+  </div>
+  <div>
+    <p>
+      <%= t "inviter" %>: <%= demand.user_name %>
+    </p>
+  </div>
+  <!--Kiểu lớp: Tìm GIA SƯ-->
+  <div>
+    <p>
+      <span style="font-weight: bold; color: #ff961e; text-transform: uppercase;">
+        <% if demand.notFound? %>
+        <%= t "finding" %>
+        <% else %>
+        <%= t "found" %>
+        <% end %>
+      </span>
+    </p>
+    <p class="no-padding">
+      <%= t "subject" %>:&nbsp;<%= demand.subject %>
+    </p>
+    <p class="no-padding">
+      <%= t "class" %> :&nbsp;<%= demand.level_class %>
+    </p>
+  </div>
+  <div>
+    <p>
+      <%= t "number_student" %> : <%= demand.number_student %>
+    </p>
+    <p>
+      <%= t "fee" %>:
+      <span class="class-tutor-fee"><%= number_to_currency(demand.fee) %></span>
+    </p>
+    <p>
+      <%= t "time_per_session" %>:
+      <span class="class-tutor-fee"><%= demand.time_per_session %> h/buổi</span>
+    </p>
+  </div>
+  <div class="col-md-5 col-sm-5">
+    <p>
+      <%= t "detail_address" %>:
+      <span class="class-tutor-fee"><%= demand.address_detail %> <%= demand.district_name%> <%= demand.province_name %> </span>
+    </p>
+    <p>
+      <%= t "note_" %>:
+      <span class="class-tutor-fee">
+        <%= demand.note %>
+      </span>
+    </p>
+  </div>
+<% end %>
+<%= link_to t("link_to_show_invite"), invite_url(id: @invite.id), class: "btn btn-info" %>
+

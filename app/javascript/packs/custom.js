@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load",function(){
   setTimeout(function(){
-    $('.alert', '.flash').remove()
-  }, 5000)
+    $('.alert', '.flash', '.flash.notice-modal').fadeOut('slow');
+  }, 8000)
 
   const districts_demand = $('#demand_district_id').html()
   $(document).on('change', '#demand_province_id', function(){
@@ -108,4 +108,8 @@ $(document).on("turbolinks:load",function(){
   $('select#user_teacher_attributes_district_id').select2()
   $('select#q_district_id_eq').select2()
   $('select#q_province_id_eq').select2()
+
+  $(document).on('click', 'button.cancle', function(){
+    $('#myModal').css("display", "none")
+  })
 });

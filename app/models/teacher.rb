@@ -1,9 +1,10 @@
 class Teacher < ApplicationRecord
   belongs_to :user
-  has_many :teach_offers
-  has_many :comments, dependent: :destroy
   belongs_to :province
   belongs_to :district
+  has_many :teach_offers
+  has_many :comments, dependent: :destroy
+  has_many :invites, dependent: :destroy
   has_many :teach_offers, dependent: :restrict_with_exception
 
   ratyrate_rateable "point"

@@ -1,8 +1,10 @@
 class Demand < ApplicationRecord
   belongs_to :user
   has_many :teach_offers, dependent: :destroy
+  has_many :invite_items, dependent: :destroy
   belongs_to :province
   belongs_to :district
+  has_many :invites, through: :invite_items
 
   validates :subject, :title, presence: true, length: {maximum: 100}
   validates :number_student, :fee, presence: true, numericality: { only_integer: true }

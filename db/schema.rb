@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_152430) do
+ActiveRecord::Schema.define(version: 2020_04_03_053648) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -89,6 +89,23 @@ ActiveRecord::Schema.define(version: 2020_03_30_152430) do
   create_table "districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.integer "province_id", null: false
+  end
+
+  create_table "invite_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "demand_id", null: false
+    t.bigint "invite_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["demand_id"], name: "index_invite_items_on_demand_id"
+    t.index ["invite_id"], name: "index_invite_items_on_invite_id"
+  end
+
+  create_table "invites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_invites_on_teacher_id"
   end
 
   create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -191,6 +208,9 @@ ActiveRecord::Schema.define(version: 2020_03_30_152430) do
   add_foreign_key "demands", "districts"
   add_foreign_key "demands", "provinces"
   add_foreign_key "demands", "users"
+  add_foreign_key "invite_items", "demands"
+  add_foreign_key "invite_items", "invites"
+  add_foreign_key "invites", "teachers"
   add_foreign_key "teach_offers", "demands"
   add_foreign_key "teach_offers", "teachers"
   add_foreign_key "teachers", "districts"

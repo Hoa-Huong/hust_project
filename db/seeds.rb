@@ -82,7 +82,7 @@ User.teacher.ids.each do |n|
   teacher.save
 end
 
-100.times do |n|
+20.times do |n|
   teacher_ids = Teacher.ids
   teacher_id = Teacher.ids.sample
   demand_ids = Demand.ids

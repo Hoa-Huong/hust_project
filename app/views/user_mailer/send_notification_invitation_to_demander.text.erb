@@ -1,0 +1,11 @@
+<h1><%= t "title_mail_status_teach_offer" %></h1>
+<p>
+  <%= t "hello" %> <%= @invite_item.demand.user_name %> !!!!
+</p>
+<p><%= t "your_invitation" %></p>
+<p><%= @invite_item.demand.title %></p>
+<% if @invite_item.yes? %>
+  <p><%= t "teacher_yes" %></p>
+<% else %>
+  <p><%= t "teacher_no" %></p>
+<% end %>
