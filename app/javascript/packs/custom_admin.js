@@ -12,4 +12,12 @@ $(document).on("turbolinks:load",function(){
       cell.innerHTML = i+1;
     } );
   } ).draw();
+
+  setTimeout(function(){
+    $('.alert', '.flash', '.flash.notice-modal').fadeOut('slow');
+  }, 6000)
+
+  $(document).on('click', 'tr[data-link]', function(){
+    window.location = $(this).data('link')
+  })
 });

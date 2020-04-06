@@ -1,17 +1,19 @@
 class InvitesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :teacher, only: :create
   before_action :invite, only: [:update, :show, :destroy]
 
   def create
-    @demands = current_user.demands.notFound
-    @invite = Invite.new teacher_id: @teacher.id
-    if @invite.save
-      respond_to :js
-    else
-      respond_to do |format|
-        format.js { flash.now[:danger] = t "create_invite_fail" }
+      @demands = current_user.demands.notFound if user_signed_in?
+      @invite = Invite.new teacher_id: @teacher.id
+      if @invite.save
+        respond_to :js
+      else
+        respond_to do |format|
+          format.js { flash.now[:danger] = t "create_invite_fail" }
+        end
       end
-    end
   end
 
   def show

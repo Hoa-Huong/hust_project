@@ -66,6 +66,14 @@
           <% end %>
         </li>
         <li class="nav-item">
+          <%= link_to admin_invite_items_path, class: "nav-link" do %>
+            <i class="fas fa-hands-helping"></i>
+            <p>
+              <%= t "manage_invitation" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
           <%= link_to admin_charts_path, class: "nav-link" do %>
             <i class="fa fa-money"></i>
             <p>

@@ -1,0 +1,15 @@
+<tr>
+  <td></td>
+  <td><%= link_to invite_item.demand.user_name, admin_user_path(invite_item.demand.user), class: "invite_item" %></td>
+  <td><%= link_to invite_item.invite.teacher.user_name, admin_user_path(invite_item.invite.teacher.user), class: "invite_item" %></td>
+  <td><%= link_to invite_item.demand.title, admin_demand_path(invite_item.demand), class: "invite_item" %></td>
+  <td>
+    <% if invite_item.pending? %>
+      <strong><p class="status_<%= invite_item.status %>"><%= t "pending" %></p></strong>
+    <% elsif invite_item.yes? %>
+      <strong><p class="status_<%= invite_item.status %>"><%= t "agree" %></p></strong>
+    <% else %>
+      <strong><p class="status_<%= invite_item.status %>"><%= t "disagree" %></p></strong>
+    <% end %>
+  </td>
+</tr>

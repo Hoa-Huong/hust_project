@@ -220,3 +220,6 @@ en:
   teacher_yes: "The teacher you invited has accepted your invitation. The zinza teacher will contact you within 24 hours to confirm"
   teacher_no: "Sorry, the teacher you invited declined your invitation. Or revisit the webiste to find another teacher"
   your_invitation: "Your invitation: "
+  invitor: "Invitor"
+  invitation: "Invitation"
+  manage_invitation: "Invitation management"
